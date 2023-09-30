@@ -1,0 +1,10 @@
+# Node.js dependencies
+node_modules/
+
+# Dependency version locking file
+package-lock.json
+
+# Local configuration files
+.env
+.env.local
+config.js
