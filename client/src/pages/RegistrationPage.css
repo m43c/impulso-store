@@ -8,8 +8,8 @@
     background-color: #ab91ca;
 }
 
-.container__h1 {
-    margin-top: 0;
+.container__title {
+    margin: 0;
     font-family: "Lilita One", cursive;
     font-family: "Pacifico", cursive;
 }
@@ -20,9 +20,14 @@
     flex-direction: column;
 }
 
+.container__input--error {
+    text-align: center;
+    background-color: #faa69e;
+}
+
 .container__input {
     padding: 0.4em;
-    margin-bottom: 1em;
+    margin-top: 1em;
     border: 1px solid gray;
     border-radius: 3px;
     font-size: inherit;
@@ -30,9 +35,12 @@
     background-color: #f6e9df;
 }
 
-.container__input--error {
-    text-align: center;
-    background-color: #faa69e;
+.container__error {
+    margin: 0;
+    padding-top: 0.2em;
+    padding-left: 0.4em;
+    color: #ee204e;
+    font-weight: bold;
 }
 
 .container__input--button {
@@ -41,13 +49,14 @@
     cursor: pointer;
 }
 
-.container__p {
+.container__question {
     margin: 0;
+    margin-top: 1em;
     text-align: center;
 }
 
 .container__link {
     font-weight: bold;
-    color: inherit;
+    color: #ee204e;
     text-decoration: none;
 }

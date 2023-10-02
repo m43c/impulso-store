@@ -6,8 +6,12 @@ import { useNavigate, Link } from "react-router-dom";
 import "./RegistrationPage.css";
 
 function RegistrationPage() {
-    const { register, handleSubmit } = useForm();
-    const { signup, isAuthenticated, errors } = useAuth();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const { signup, isAuthenticated, errors: registrationErrors } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,10 +26,10 @@ function RegistrationPage() {
 
     return (
         <div className="container">
-            <h1 className="container__h1">Welcome to Impulso</h1>
+            <h1 className="container__title">Welcome to Impulso</h1>
 
             <form className="container__form" onSubmit={onSubmit}>
-                {errors.map((error, i) => (
+                {registrationErrors.map((error, i) => (
                     <div
                         className="container__input container__input--error"
                         key={i}
@@ -40,6 +44,9 @@ function RegistrationPage() {
                     placeholder="Username"
                     {...register("username", { required: true })}
                 />
+                {errors.username && (
+                    <p className="container__error">Username is required</p>
+                )}
 
                 <input
                     type="email"
@@ -47,6 +54,9 @@ function RegistrationPage() {
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
+                {errors.email && (
+                    <p className="container__error">Email is required</p>
+                )}
 
                 <input
                     type="password"
@@ -54,6 +64,9 @@ function RegistrationPage() {
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
+                {errors.password && (
+                    <p className="container__error">Password is required</p>
+                )}
 
                 <button
                     type="submit"
@@ -62,7 +75,7 @@ function RegistrationPage() {
                     Sign Up
                 </button>
 
-                <p className="container__p">
+                <p className="container__question">
                     Already have an account?{" "}
                     <Link className="container__link" to="/signin">
                         Sing in
