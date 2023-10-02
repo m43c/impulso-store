@@ -1,34 +1,25 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate, Link } from "react-router-dom";
-import "./RegistrationPage.css";
+import { Link } from "react-router-dom";
 
-function RegistrationPage() {
+function LoginPage() {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const { signup, isAuthenticated, errors: registrationErrors } = useAuth();
-    const navigate = useNavigate();
+    const { signin, errors: signinErrors } = useAuth();
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/");
-        }
-    }, [isAuthenticated]);
-
-    const onSubmit = handleSubmit(async (values) => {
-        signup(values);
+    const onSubmit = handleSubmit((data) => {
+        signin(data);
     });
 
     return (
         <div className="container">
-            <h1 className="container__title">Sign up for Impulso</h1>
+            <h1 className="container__title">Sign in for Impulso</h1>
 
             <form className="container__form" onSubmit={onSubmit}>
-                {registrationErrors.map((error, i) => (
+                {signinErrors.map((error, i) => (
                     <div
                         className="container__input container__input--error"
                         key={i}
@@ -36,16 +27,6 @@ function RegistrationPage() {
                         {error}
                     </div>
                 ))}
-
-                <input
-                    type="text"
-                    className="container__input"
-                    placeholder="Username"
-                    {...register("username", { required: true })}
-                />
-                {errors.username && (
-                    <p className="container__error">Username is required</p>
-                )}
 
                 <input
                     type="email"
@@ -71,13 +52,13 @@ function RegistrationPage() {
                     type="submit"
                     className="container__input container__input--button"
                 >
-                    Sign Up
+                    Sign In
                 </button>
 
                 <p className="container__question">
-                    Already have an account?{" "}
-                    <Link className="container__link" to="/signin">
-                        Sing in
+                    Don't have an account?{" "}
+                    <Link className="container__link" to="/signup">
+                        Sign Up
                     </Link>
                 </p>
             </form>
@@ -85,4 +66,4 @@ function RegistrationPage() {
     );
 }
 
-export default RegistrationPage;
+export default LoginPage;

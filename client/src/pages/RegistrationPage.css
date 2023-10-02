@@ -20,11 +20,6 @@
     flex-direction: column;
 }
 
-.container__input--error {
-    text-align: center;
-    background-color: #faa69e;
-}
-
 .container__input {
     padding: 0.4em;
     margin-top: 1em;
@@ -33,6 +28,11 @@
     font-size: inherit;
     outline: none;
     background-color: #f6e9df;
+}
+
+.container__input--error {
+    text-align: center;
+    background-color: #faa69e;
 }
 
 .container__error {
