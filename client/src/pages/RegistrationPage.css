@@ -30,6 +30,11 @@
     background-color: #f6e9df;
 }
 
+.container__input--error {
+    text-align: center;
+    background-color: #faa69e;
+}
+
 .container__input--button {
     font-weight: bold;
     background-color: #ffff70;

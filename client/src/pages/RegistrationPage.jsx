@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { signupRequest } from "../api/auth";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate, Link } from "react-router-dom";
+
 import "./RegistrationPage.css";
 
 function RegistrationPage() {
     const { register, handleSubmit } = useForm();
+    const { signup, isAuthenticated, errors } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
+    }, [isAuthenticated]);
 
     const onSubmit = handleSubmit(async (values) => {
-        const res = await signupRequest(values);
-        console.log(res);
+        signup(values);
     });
 
     return (
@@ -15,6 +25,15 @@ function RegistrationPage() {
             <h1 className="container__h1">Welcome to Impulso</h1>
 
             <form className="container__form" onSubmit={onSubmit}>
+                {errors.map((error, i) => (
+                    <div
+                        className="container__input container__input--error"
+                        key={i}
+                    >
+                        {error}
+                    </div>
+                ))}
+
                 <input
                     type="text"
                     className="container__input"
@@ -45,9 +64,9 @@ function RegistrationPage() {
 
                 <p className="container__p">
                     Already have an account?{" "}
-                    <a className="container__link" href="#">
+                    <Link className="container__link" to="/signin">
                         Sing in
-                    </a>
+                    </Link>
                 </p>
             </form>
         </div>
