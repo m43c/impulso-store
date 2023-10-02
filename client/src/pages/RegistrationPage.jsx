@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { signupRequest } from "../api/auth";
+import "./RegistrationPage.css";
 
 function RegistrationPage() {
     const { register, handleSubmit } = useForm();
@@ -10,32 +11,43 @@ function RegistrationPage() {
     });
 
     return (
-        <div>
-            <h1>Sign Up</h1>
+        <div className="container">
+            <h1 className="container__h1">Welcome to Impulso</h1>
 
-            <form onSubmit={onSubmit}>
+            <form className="container__form" onSubmit={onSubmit}>
                 <input
                     type="text"
-                    {...register("username", { required: true })}
+                    className="container__input"
                     placeholder="Username"
+                    {...register("username", { required: true })}
                 />
 
                 <input
                     type="email"
-                    {...register("email", { required: true })}
+                    className="container__input"
                     placeholder="Email"
+                    {...register("email", { required: true })}
                 />
 
                 <input
                     type="password"
-                    {...register("password", { required: true })}
+                    className="container__input"
                     placeholder="Password"
+                    {...register("password", { required: true })}
                 />
 
-                <button type="submit">Sign Up</button>
+                <button
+                    type="submit"
+                    className="container__input container__input--button"
+                >
+                    Sign Up
+                </button>
 
-                <p>
-                    Already have an account? <a href="#">Sing in</a>
+                <p className="container__p">
+                    Already have an account?{" "}
+                    <a className="container__link" href="#">
+                        Sing in
+                    </a>
                 </p>
             </form>
         </div>
