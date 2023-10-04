@@ -1,11 +1,12 @@
 import User from "../models/userModel.js";
+import Role from "../models/roleModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js ";
 import { TOKEN_SECRET } from "../config.js";
 
 export const signup = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, roles } = req.body;
 
     try {
         const userFound = await User.findOne({ email });
@@ -22,17 +23,26 @@ export const signup = async (req, res) => {
             password: passwordHash,
         });
 
-        const userSaved = await newUser.save();
+        if (roles) {
+            const foundRoles = await Role.find({ name: { $in: roles } });
+            newUser.roles = foundRoles.map((role) => role._id);
+        } else {
+            const role = await Role.findOne({ name: "user" });
+            newUser.roles = [role._id];
+        }
 
-        const token = await createAccessToken({ id: userSaved._id });
+        const savedUser = await newUser.save();
+
+        const token = await createAccessToken({ id: savedUser._id });
         res.cookie("token", token);
 
         return res.json({
-            id: userSaved._id,
-            username: userSaved.username,
-            email: userSaved.email,
-            createdAt: userSaved.createdAt,
-            updatedAt: userSaved.updatedAt,
+            id: savedUser._id,
+            username: savedUser.username,
+            email: savedUser.email,
+            roles: savedUser.roles,
+            createdAt: savedUser.createdAt,
+            updatedAt: savedUser.updatedAt,
         });
     } catch (error) {
         return res.status(500).json({ message: error.message });
@@ -43,7 +53,7 @@ export const signin = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const userFound = await User.findOne({ email });
+        const userFound = await User.findOne({ email }).populate("roles");
 
         if (!userFound) {
             return res.status(400).json({ message: "User not found" });
@@ -62,6 +72,7 @@ export const signin = async (req, res) => {
             id: userFound._id,
             username: userFound.username,
             email: userFound.email,
+            roles: userFound.roles,
             createdAt: userFound.createdAt,
             updatedAt: userFound.updatedAt,
         });

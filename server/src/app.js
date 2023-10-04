@@ -1,11 +1,14 @@
 import express from "express";
 import morgan from "morgan";
+import { createRoles } from "./libs/initialSetup.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 
 const app = express();
+
+createRoles();
 
 app.use(
     cors({
