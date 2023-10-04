@@ -11,8 +11,8 @@ import {
 const router = Router();
 
 router.post("/products", validateToken, createProduct);
-router.get("/products", validateToken, readProducts);
-router.get("/products/:id", validateToken, readProduct);
+router.get("/products", readProducts);
+router.get("/products/:id", readProduct);
 router.put("/products/:id", validateToken, updateProduct);
 router.delete("/products/:id", validateToken, deleteProduct);
 
