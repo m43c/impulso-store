@@ -25,9 +25,9 @@ export const signup = async (req, res) => {
         const userSaved = await newUser.save();
 
         const token = await createAccessToken({ id: userSaved._id });
-
         res.cookie("token", token);
-        res.json({
+
+        return res.json({
             id: userSaved._id,
             username: userSaved.username,
             email: userSaved.email,
@@ -35,7 +35,7 @@ export const signup = async (req, res) => {
             updatedAt: userSaved.updatedAt,
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: error.message });
     }
 };
 
@@ -56,9 +56,9 @@ export const signin = async (req, res) => {
         }
 
         const token = await createAccessToken({ id: userFound._id });
-
         res.cookie("token", token);
-        res.json({
+
+        return res.json({
             id: userFound._id,
             username: userFound.username,
             email: userFound.email,
@@ -66,7 +66,7 @@ export const signin = async (req, res) => {
             updatedAt: userFound.updatedAt,
         });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: error.message });
     }
 };
 
