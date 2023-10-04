@@ -75,7 +75,7 @@ export const logout = (req, res) => {
     return res.sendStatus(200);
 };
 
-export const home = async (req, res) => {
+export const profile = async (req, res) => {
     const userFound = await User.findById(req.user.id);
 
     if (!userFound) {
