@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: "Lilita One";
+    background-color: #a5e5f3;
+}
+
+.containerFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.containerSocialNetwork {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.containerSocialNetworkItem {
+    margin-left: 1em;
+    list-style: none;
+}
+
+.containerSocialNetworkLink {
+    color: #000000;
+    text-decoration: none;
+}
