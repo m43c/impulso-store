@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "Lilita One";
+    background-color: #dbf5fb;
+}
+
+.containerNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+}
+
+.containerTitle {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.containerMenu {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.containerMenuItem {
+    margin-left: 1em;
+    list-style: none;
+}
+
+.containerAuth {
+    display: flex;
+}
+
+.containerMenuItemLink {
+    color: #000000;
+    text-decoration: none;
+}
+
+.containerMenuAuthLink {
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    background-color: #f8a0b3;
+}
