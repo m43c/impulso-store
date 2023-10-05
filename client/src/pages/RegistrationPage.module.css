@@ -8,19 +8,19 @@
     background-color: #ab91ca;
 }
 
-.container__title {
-    margin: 0;
+.containerTitle {
+    margin-top: 0;
     font-family: "Lilita One", cursive;
     font-family: "Pacifico", cursive;
 }
 
-.container__form {
+.containerForm {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.container__input {
+.containerInput {
     padding: 0.4em;
     margin-top: 1em;
     border: 1px solid gray;
@@ -30,12 +30,12 @@
     background-color: #f6e9df;
 }
 
-.container__input--error {
+.containerInputError {
     text-align: center;
     background-color: #faa69e;
 }
 
-.container__error {
+.containerError {
     margin: 0;
     padding-top: 0.2em;
     padding-left: 0.4em;
@@ -43,19 +43,19 @@
     font-weight: bold;
 }
 
-.container__input--button {
+.containerInputButton {
     font-weight: bold;
     background-color: #ffff70;
     cursor: pointer;
 }
 
-.container__question {
+.containerQuestion {
     margin: 0;
     margin-top: 1em;
     text-align: center;
 }
 
-.container__link {
+.containerLink {
     font-weight: bold;
     color: #ee204e;
     text-decoration: none;

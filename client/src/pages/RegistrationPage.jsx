@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-import "./RegistrationPage.css";
+import styles from "./RegistrationPage.module.css";
 
 function RegistrationPage() {
     const {
@@ -24,13 +24,13 @@ function RegistrationPage() {
     });
 
     return (
-        <div className="container">
-            <h1 className="container__title">Sign up for Impulso</h1>
+        <div className={styles.container}>
+            <h1 className={styles.containerTitle}>Sign up for Impulso</h1>
 
-            <form className="container__form" onSubmit={onSubmit}>
+            <form className={styles.containerForm} onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
                     <div
-                        className="container__input container__input--error"
+                        className={`${styles.containerInput} ${styles.containerInputError}`}
                         key={i}
                     >
                         {error}
@@ -39,44 +39,48 @@ function RegistrationPage() {
 
                 <input
                     type="text"
-                    className="container__input"
+                    className={styles.containerInput}
                     placeholder="Username"
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className="container__error">Username is required</p>
+                    <p className={styles.containerError}>
+                        Username is required
+                    </p>
                 )}
 
                 <input
                     type="email"
-                    className="container__input"
+                    className={styles.containerInput}
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className="container__error">Email is required</p>
+                    <p className={styles.containerError}>Email is required</p>
                 )}
 
                 <input
                     type="password"
-                    className="container__input"
+                    className={styles.containerInput}
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className="container__error">Password is required</p>
+                    <p className={styles.containerError}>
+                        Password is required
+                    </p>
                 )}
 
                 <button
                     type="submit"
-                    className="container__input container__input--button"
+                    className={`${styles.containerInput} ${styles.containerInputButton}`}
                 >
                     Sign Up
                 </button>
 
-                <p className="container__question">
+                <p className={styles.containerQuestion}>
                     Already have an account?{" "}
-                    <Link className="container__link" to="/signin">
+                    <Link className={styles.containerLink} to="/signin">
                         Sing in
                     </Link>
                 </p>
