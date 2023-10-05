@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5em;
+    border-radius: 5px;
+    background-color: #ab91ca;
+}
+
+.containerTitle {
+    margin-top: 0;
+    font-family: "Lilita One", cursive;
+    font-family: "Pacifico", cursive;
+}
+
+.containerForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerInput {
+    padding: 0.4em;
+    margin-top: 1em;
+    border: 1px solid gray;
+    border-radius: 3px;
+    font-size: inherit;
+    outline: none;
+    background-color: #f6e9df;
+}
+
+.containerInputError {
+    text-align: center;
+    background-color: #faa69e
+}
+
+.containerError {
+    margin: 0;
+    padding-top: 0.2em;
+    padding-left: 0.4em;
+    color: #ee204e;
+    font-weight: bold;
+}
+
+.containerInputButton {
+    font-weight: bold;
+    background-color: #ffff70;
+    cursor: pointer;
+}
+
+.containerQuestion {
+    margin: 0;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.containerLink {
+    font-weight: bold;
+    color: #ee204e;
+    text-decoration: none;
+}
