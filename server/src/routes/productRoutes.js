@@ -14,7 +14,7 @@ import {
 const router = Router();
 
 router.post(
-    "/products",
+    "/add-product",
     validateToken,
     validateRole,
     validateSchema(createProductSchema),

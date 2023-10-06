@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const createProductSchema = z.object({
     name: z.string({
-        required_error: "Title is required",
+        required_error: "name is required",
     }),
     imgURL: z.string({
         required_error: "Image is required",
