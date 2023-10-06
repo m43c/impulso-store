@@ -14,7 +14,7 @@ function Navbar() {
                             className={`${styles.containerMenuItemLink} ${styles.containerMenuItemLinkTitle}`}
                             to="/"
                         >
-                            Impulso
+                            IMPULSO
                         </Link>
                     </li>
                     <li className={styles.containerMenuItem}>
