@@ -10,29 +10,20 @@
 .containerNav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0.5em 1em;
-}
-
-.containerTitle {
-    margin-top: 0;
-    margin-bottom: 0;
+    padding: 1em 0.5em;
 }
 
 .containerMenu {
     display: flex;
-    justify-content: space-evenly;
+    align-items: baseline;
     margin-top: 0;
     margin-bottom: 0;
+    padding-left: 0;
 }
 
 .containerMenuItem {
-    margin-left: 1em;
+    margin-left: 0.5em;
     list-style: none;
-}
-
-.containerAuth {
-    display: flex;
 }
 
 .containerMenuItemLink {
@@ -40,8 +31,21 @@
     text-decoration: none;
 }
 
+.containerMenuItemLinkTitle {
+    font-size: 1.5rem;
+}
+
+.containerAuth {
+    display: flex;
+    align-items: center;
+}
+
 .containerMenuAuthLink {
     padding: 0.2em 0.5em;
     border-radius: 5px;
     background-color: #f8a0b3;
+}
+
+.containerMenuAddProduct {
+    background-color: #92c7f2;
 }

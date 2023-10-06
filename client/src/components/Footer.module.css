@@ -10,7 +10,7 @@
 .containerFooter {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1em 0.5em;
 }
 
 .containerSocialNetwork {
@@ -20,7 +20,7 @@
 }
 
 .containerSocialNetworkItem {
-    margin-left: 1em;
+    margin-left: 0.5em;
     list-style: none;
 }
 
