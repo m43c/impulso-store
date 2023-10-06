@@ -13,15 +13,15 @@ function RegistrationPage() {
     const { signup, isAuthenticated, errors: registrationErrors } = useAuth();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/");
-        }
-    }, [isAuthenticated]);
-
     const onSubmit = handleSubmit(async (values) => {
         signup(values);
     });
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/signin");
+        }
+    }, [isAuthenticated]);
 
     return (
         <div className={styles.container}>

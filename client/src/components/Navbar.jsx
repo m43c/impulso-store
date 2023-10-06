@@ -50,7 +50,7 @@ function Navbar() {
                                     <li className={styles.containerMenuItem}>
                                         <Link
                                             className={`${styles.containerMenuItemLink} ${styles.containerMenuAuthLink} ${styles.containerMenuAddProduct}`}
-                                            to="/"
+                                            to="/add-product"
                                         >
                                             Add Product
                                         </Link>

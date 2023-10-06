@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
 import Footer from "./components/Footer";
+import ProductFormPage from "./pages/ProductFormPage";
 
 function App() {
     return (
@@ -17,7 +18,20 @@ function App() {
                     <Route path="/signup" element={<RegistrationPage />} />
                     <Route path="/signin" element={<LoginPage />} />
 
-                    <Route element={<ProtectedRoute />}></Route>
+                    <Route element={<ProtectedRoute />}>
+                        <Route
+                            path="/add-product"
+                            element={<ProductFormPage />}
+                        />
+                        <Route
+                            path="/products"
+                            element={<h1>Products Page</h1>}
+                        />
+                        <Route
+                            path="/products/:id"
+                            element={<h1>Update Product</h1>}
+                        />
+                    </Route>
                 </Routes>
             </BrowserRouter>
             <Footer />
