@@ -43,7 +43,6 @@
 }
 
 .containerInputButton {
-    font-weight: bold;
     background-color: #ffff70;
     cursor: pointer;
 }
@@ -55,7 +54,6 @@
 }
 
 .containerLink {
-    font-weight: bold;
     color: #ee204e;
     text-decoration: none;
 }
