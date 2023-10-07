@@ -6,8 +6,9 @@ import ProtectedRoute from "./ProtectedRoute";
 import HomePage from "./pages/HomePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
-import Footer from "./components/Footer";
 import ProductFormPage from "./pages/ProductFormPage";
+import ProductsPage from "./pages/ProductsPage";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
                             />
                             <Route
                                 path="/products"
-                                element={<h1>Products Page</h1>}
+                                element={<ProductsPage />}
                             />
                             <Route
                                 path="/products/:id"
