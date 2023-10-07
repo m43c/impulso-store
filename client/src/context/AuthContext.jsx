@@ -35,8 +35,6 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await signinRequest(user);
 
-            console.log(res.data);
-
             setUser(res.data);
             setIsAuthenticated(true);
         } catch (error) {
