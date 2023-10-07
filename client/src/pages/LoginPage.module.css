@@ -5,12 +5,12 @@
     align-items: center;
     padding: 1.5em;
     border-radius: 5px;
+    font-family: "Lilita One";
     background-color: #ab91ca;
 }
 
 .containerTitle {
     margin-top: 0;
-    font-family: "Lilita One";
 }
 
 .containerForm {
