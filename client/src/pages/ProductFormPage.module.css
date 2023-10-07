@@ -2,20 +2,19 @@
     min-width: 300px;
     padding: 1em;
     border-radius: 5px;
+    font-family: "Lilita One";
     background-color: #ab91ca;
 }
 
 .mainTitle {
     margin-top: 0;
     text-align: center;
-    font-family: "Lilita One";
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: "Lilita One";
 }
 
 .formInput {
