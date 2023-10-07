@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
+import { useProducts } from "../context/ProductsContext";
 
 function ProductFormPage() {
     const { register, handleSubmit } = useForm();
+    const { createProduct } = useProducts();
 
     const onSubmit = handleSubmit((data) => {
-        console.log(data);
+        createProduct(data);
     });
 
     return (
@@ -12,14 +14,14 @@ function ProductFormPage() {
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
-                    placeholder="Title"
+                    placeholder="Name"
                     autoFocus
-                    {...register("title")}
+                    {...register("name")}
                 />
 
                 <input
                     type="text"
-                    placeholder="Image URL"
+                    placeholder="Image"
                     {...register("image")}
                 />
 
