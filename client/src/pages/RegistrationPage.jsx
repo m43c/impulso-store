@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
@@ -10,18 +10,25 @@ function RegistrationPage() {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const { signup, isAuthenticated, errors: registrationErrors } = useAuth();
+    const {
+        signup,
+        user,
+        isAuthenticated,
+        errors: registrationErrors,
+    } = useAuth();
     const navigate = useNavigate();
 
-    const onSubmit = handleSubmit(async (values) => {
+    const onSubmit = handleSubmit((values) => {
         signup(values);
     });
 
     useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/signin");
+        if (!user) {
+            navigate("/signup");
+        } else {
+            navigate("/signin")
         }
-    }, [isAuthenticated]);
+    }, [user]);
 
     return (
         <div className={styles.container}>

@@ -39,14 +39,11 @@ function Navbar() {
                     </li>
                 </ul>
 
-                {user && isAuthenticated ? (
+                {user || isAuthenticated ? (
                     user.roles[0].name === "admin" ? (
                         <>
                             <div className={styles.containerAuth}>
                                 <ul className={styles.containerMenu}>
-                                    <li className={styles.containerMenuItem}>
-                                        Welcome {user.username}
-                                    </li>
                                     <li className={styles.containerMenuItem}>
                                         <Link
                                             className={`${styles.containerMenuItemLink} ${styles.containerMenuAuthLink} ${styles.containerMenuAddProduct}`}
@@ -63,7 +60,7 @@ function Navbar() {
                                                 logout();
                                             }}
                                         >
-                                            Logout
+                                            Exit
                                         </Link>
                                     </li>
                                 </ul>
@@ -84,7 +81,7 @@ function Navbar() {
                                                 logout();
                                             }}
                                         >
-                                            Logout
+                                            Exit
                                         </Link>
                                     </li>
                                 </ul>
