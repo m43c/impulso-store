@@ -1,0 +1,57 @@
+.mainContainer {
+    min-width: 300px;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #ab91ca;
+}
+
+.mainTitle {
+    margin-top: 0;
+    text-align: center;
+    font-family: "Lilita One";
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Lilita One";
+}
+
+.formInput {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid gray;
+    border-radius: 3px;
+    background-color: #f6e9df;
+    outline: none;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formBtn {
+    width: 30%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border: 1px solid gray;
+    border-radius: 3px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    outline: none;
+}
+
+.formBtnCancel {
+    background-color: #f8a0b3;
+}
+
+.formBtnReset {
+    background-color: #92c7f2;
+}
+
+.formBtnSave {
+    background-color: #80ed99;
+}
