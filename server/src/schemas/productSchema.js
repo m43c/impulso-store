@@ -4,7 +4,7 @@ export const createProductSchema = z.object({
     name: z.string({
         required_error: "name is required",
     }),
-    imgURL: z.string({
+    image: z.string({
         required_error: "Image is required",
     }),
     description: z.string({
