@@ -1,16 +1,22 @@
 .container {
     width: 100%;
-    position: absolute;
+    height: 50px;
+    position: fixed;
     bottom: 0;
     left: 0;
+    display: flex;
+    align-items: center;
     font-family: "Lilita One";
-    background-color: #a5e5f3;
+    background-color: #dbf5fb;
+    
 }
 
 .containerFooter {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1em 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .containerSocialNetwork {

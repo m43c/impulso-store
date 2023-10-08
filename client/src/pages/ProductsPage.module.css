@@ -12,6 +12,7 @@
 }
 
 .product {
+    width: 150px;
     padding: 1em;
     border-radius: 5px;
     text-align: center;
