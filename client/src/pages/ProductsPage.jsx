@@ -6,19 +6,27 @@ import styles from "./ProductsPage.module.css";
 function ProductsPage() {
     const { readProducts, products } = useProducts();
 
-    if (products.length == 0) {
-        return <h1 className={styles.noProducts}>There are no products yet</h1>;
-    }
-
     useEffect(() => {
         readProducts();
     }, []);
 
     return (
-        <div className={styles.container}>
-            {products.map((product) => (
-                <ProductCard product={product} key={product._id} />
-            ))}
+        <div>
+            {products.length == 0 ? (
+                <>
+                    <h1 className={styles.noProducts}>
+                        There are no products yet
+                    </h1>
+                </>
+            ) : (
+                <>
+                    <div className={styles.container}>
+                        {products.map((product) => (
+                            <ProductCard product={product} key={product._id} />
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 }
