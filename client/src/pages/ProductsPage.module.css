@@ -1,17 +1,18 @@
 .container {
+    width: 100%;
     position: absolute;
     top: 70px;
     left: 16px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 16px;
+    justify-content: stretch;
+    align-items: flex-start;
     font-family: "Lilita One";
 }
 
 .product {
     padding: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
     border-radius: 5px;
     text-align: center;
     background-color: #ab91ca;
