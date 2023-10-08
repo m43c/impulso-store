@@ -17,17 +17,19 @@ export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
     const createProduct = async (product) => {
-        const res = await createProductRequest(product);
-        return console.log(res);
+        try {
+            await createProductRequest(product);
+        } catch (error) {
+            console.log(error.response.data);
+        }
     };
 
     const readProducts = async () => {
         try {
             const res = await readProductsRequest();
             setProducts(res.data);
-            console.log(res.data);
         } catch (error) {
-            console.log(error);
+            console.log(error.response.data);
         }
     };
 
