@@ -1,5 +1,6 @@
 .noProducts {
-    color: #000000;
+    font-family: "Lilita One";
+    color: #ffffff;
 }
 
 .container {
@@ -13,20 +14,4 @@
     justify-content: stretch;
     align-items: flex-start;
     font-family: "Lilita One";
-}
-
-.product {
-    width: 150px;
-    padding: 1em;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #ab91ca;
-}
-
-.image {
-    width: 100px;
-}
-
-.name {
-    margin-bottom: 0;
 }
