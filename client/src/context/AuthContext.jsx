@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }) => {
             const res = await signupRequest(user);
 
             setUser(res.data);
-            // setIsAuthenticated(true);
         } catch (error) {
             setErrors(error.response.data);
         }
