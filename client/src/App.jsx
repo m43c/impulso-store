@@ -36,9 +36,9 @@ function App() {
                             />
                         </Route>
                     </Routes>
+                    <Footer />
                 </BrowserRouter>
             </ProductProvider>
-            <Footer />
         </AuthProvider>
     );
 }
