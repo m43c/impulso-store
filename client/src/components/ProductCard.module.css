@@ -1,0 +1,36 @@
+.product {
+    width: 150px;
+    padding: 1em;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #ab91ca;
+}
+
+.image {
+    width: 100px;
+}
+
+.name {
+    margin-bottom: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.5em;
+}
+
+.button {
+    width: 60px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.editBtn {
+    background-color: #ffff70;
+}
+
+.deleteBtn {
+    background-color: #f8a0b3;
+}
