@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useAuth } from "../context/AuthContext";
+import { profileRequest } from "../api/auth";
+import { useEffect, useState } from "react";
 
 function Navbar() {
-    const { isAuthenticated, logout, user } = useAuth();
+    const { user, isAuthenticated, logout } = useAuth();
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const res = await profileRequest();
+                setData(res.data);
+            } catch (error) {
+                console.log(error.response.data);
+            }
+        }
+
+        getData();
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -40,7 +56,8 @@ function Navbar() {
                 </ul>
 
                 {user || isAuthenticated ? (
-                    user.roles[0].name === "admin" ? (
+                    user.roles[0].name === "admin" ||
+                    data.roles[0].name === "admin" ? (
                         <>
                             <div className={styles.containerAuth}>
                                 <ul className={styles.containerMenu}>
