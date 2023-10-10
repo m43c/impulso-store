@@ -20,8 +20,8 @@ router.post(
     validateSchema(createProductSchema),
     createProduct
 );
-router.get("/products", readProducts);
-router.get("/products/:id", readProduct);
+router.get("/products", validateToken, readProducts);
+router.get("/products/:id", validateToken, readProduct);
 router.put("/products/:id", validateToken, validateRole, updateProduct);
 router.delete("/products/:id", validateToken, validateRole, deleteProduct);
 
