@@ -11,10 +11,10 @@ function ProductsPage() {
     }, []);
 
     return (
-        <div className={styles.container}>
+        <section className={styles.mainContainer}>
             {products.length == 0 ? (
                 <>
-                    <h1 className={styles.noProducts}>
+                    <h1 className={styles.messageNoProducts}>
                         There are no products yet
                     </h1>
                 </>
@@ -27,7 +27,7 @@ function ProductsPage() {
                     </div>
                 </>
             )}
-        </div>
+        </section>
     );
 }
 

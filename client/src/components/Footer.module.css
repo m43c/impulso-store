@@ -1,29 +1,23 @@
-.containerFooter {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+.mainContainer {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 1em 0.5em;
     border-radius: 5px;
-    font-family: "Lilita One";
-    background-color: #dbf5fb;
 }
 
-.containerSocialNetwork {
+.contactContainer {
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.containerSocialNetworkItem {
+.contactItem {
     margin-right: 0.5em;
     list-style: none;
 }
 
-.containerSocialNetworkLink {
+.contactLink {
     color: #000000;
     text-decoration: none;
 }

@@ -9,34 +9,44 @@ import LoginPage from "./pages/LoginPage";
 import ProductFormPage from "./pages/ProductFormPage";
 import ProductsPage from "./pages/ProductsPage";
 import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
     return (
         <AuthProvider>
             <ProductProvider>
                 <BrowserRouter>
-                    <Navbar />
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/signup" element={<RegistrationPage />} />
-                        <Route path="/signin" element={<LoginPage />} />
+                    <header>
+                        <Navbar />
+                    </header>
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route
+                                path="/signup"
+                                element={<RegistrationPage />}
+                            />
+                            <Route path="/signin" element={<LoginPage />} />
 
-                        <Route element={<ProtectedRoute />}>
-                            <Route
-                                path="/add-product"
-                                element={<ProductFormPage />}
-                            />
-                            <Route
-                                path="/products"
-                                element={<ProductsPage />}
-                            />
-                            <Route
-                                path="/products/:id"
-                                element={<h1>Update Product</h1>}
-                            />
-                        </Route>
-                    </Routes>
-                    <Footer />
+                            <Route element={<ProtectedRoute />}>
+                                <Route
+                                    path="/add-product"
+                                    element={<ProductFormPage />}
+                                />
+                                <Route
+                                    path="/products"
+                                    element={<ProductsPage />}
+                                />
+                                <Route
+                                    path="/products/:id"
+                                    element={<h1>Update Product</h1>}
+                                />
+                            </Route>
+                        </Routes>
+                    </main>
+                    <footer>
+                        <Footer />
+                    </footer>
                 </BrowserRouter>
             </ProductProvider>
         </AuthProvider>

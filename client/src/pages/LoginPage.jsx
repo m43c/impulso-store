@@ -24,13 +24,13 @@ function LoginPage() {
     }, [isAuthenticated]);
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.containerTitle}>Sign in for Impulso</h1>
+        <div className={styles.mainContainer}>
+            <h1 className={styles.title}>Sign in for Impulso</h1>
 
-            <form className={styles.containerForm} onSubmit={onSubmit}>
+            <form className={styles.formContainer} onSubmit={onSubmit}>
                 {signinErrors.map((error, i) => (
                     <div
-                        className={`${styles.containerInput} ${styles.containerInputError}`}
+                        className={`${styles.input} ${styles.loginError}`}
                         key={i}
                     >
                         {error}
@@ -39,36 +39,34 @@ function LoginPage() {
 
                 <input
                     type="email"
-                    className={styles.containerInput}
+                    className={styles.input}
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className={styles.containerError}>Email is required</p>
+                    <p className={styles.errorInput}>Email is required</p>
                 )}
 
                 <input
                     type="password"
-                    className={styles.containerInput}
+                    className={styles.input}
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className={styles.containerError}>
-                        Password is required
-                    </p>
+                    <p className={styles.errorInput}>Password is required</p>
                 )}
 
                 <button
                     type="submit"
-                    className={`${styles.containerInput} ${styles.containerInputButton}`}
+                    className={`${styles.input} ${styles.button}`}
                 >
                     Sign In
                 </button>
 
-                <p className={styles.containerQuestion}>
+                <p className={styles.question}>
                     Already have an account?{" "}
-                    <Link className={styles.containerLink} to="/signup">
+                    <Link className={styles.link} to="/signup">
                         Sign Up
                     </Link>
                 </p>

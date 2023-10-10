@@ -1,21 +1,23 @@
-.container {
+.mainContainer {
+    max-width: 300px;
     padding: 1.5em;
     border-radius: 5px;
     font-family: "Lilita One";
     background-color: #ab91ca;
 }
 
-.containerTitle {
+.title {
     margin-top: 0;
+    text-align: center;
 }
 
-.containerForm {
+.formContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.containerInput {
+.input {
     padding: 0.4em;
     margin-top: 1em;
     border: 1px solid gray;
@@ -25,30 +27,30 @@
     background-color: #f6e9df;
 }
 
-.containerInputError {
+.registrationError {
     text-align: center;
     background-color: #faa69e;
 }
 
-.containerError {
+.error {
     margin: 0;
     padding-top: 0.2em;
     padding-left: 0.4em;
     color: #ee204e;
 }
 
-.containerInputButton {
+.button {
     background-color: #ffff70;
     cursor: pointer;
 }
 
-.containerQuestion {
+.question {
     margin: 0;
     margin-top: 1em;
     text-align: center;
 }
 
-.containerLink {
+.link {
     color: #ee204e;
     text-decoration: none;
 }

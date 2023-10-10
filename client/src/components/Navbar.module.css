@@ -1,20 +1,11 @@
-.containerHeader{
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-family: "Lilita One";
-    border-radius: 5px;
-    background-color: #dbf5fb;
-}
-
-.containerNav {
+.mainContainer {
     display: flex;
     justify-content: space-between;
     padding: 1em 0.5em;
+    box-sizing: border-box;
 }
 
-.containerMenu {
+.menuContainer {
     display: flex;
     align-items: center;
     margin-top: 0;
@@ -22,32 +13,32 @@
     padding-left: 0;
 }
 
-.containerMenuItem {
+.menuItem {
     margin-left: 0.5em;
     list-style: none;
 }
 
-.containerMenuItemLink {
+.menuLink {
     color: #000000;
     text-decoration: none;
 }
 
-.containerMenuItemLinkTitle {
+.menuLogo {
     font-size: 1.2rem;
     
 }
 
-.containerAuth {
+.authContainer {
     display: flex;
     align-items: center;
 }
 
-.containerMenuAuthLink {
+.authLink {
     padding: 0.2em 0.5em;
     border-radius: 5px;
     background-color: #f8a0b3;
 }
 
-.containerMenuAddProduct {
+.addProductLink {
     background-color: #92c7f2;
 }

@@ -5,7 +5,7 @@ function ProductCard({ product }) {
     const { deleteProduct } = useProducts();
 
     return (
-        <div key={product._id} className={styles.product}>
+        <article key={product._id} className={styles.product}>
             <img src={product.image} className={styles.image} />
             <h1 className={styles.name}>{product.name}</h1>
             <p className={styles.description}>{product.description}</p>
@@ -23,7 +23,7 @@ function ProductCard({ product }) {
                     Edit
                 </button>
             </div>
-        </div>
+        </article>
     );
 }
 

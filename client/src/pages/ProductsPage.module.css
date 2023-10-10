@@ -1,12 +1,11 @@
-.container {
+.mainContainer {
     width: 100%;
-    margin-top: 3.5em;
-    margin-bottom: 3.5em;
+    margin-top: 3.2em;
+    margin-bottom: 3em;
     font-family: "Lilita One";
 }
 
-.noProducts {
-    font-family: "Lilita One";
+.messageNoProducts {
     color: #ffffff;
 }
 
@@ -14,5 +13,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    padding: 1em;
+    padding: 1em 0;
 }

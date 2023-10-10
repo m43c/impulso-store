@@ -2,45 +2,33 @@ import styles from "./Footer.module.css";
 
 function Footer() {
     return (
-            <footer className={styles.containerFooter}>
-                <span className={styles.containerAuthor}>
-                    Created by Marco Encinas
-                </span>
-                <ul className={styles.containerSocialNetwork}>
-                    <li className={styles.containerSocialNetworkItem}>
-                        <a
-                            className={styles.containerSocialNetworkLink}
-                            href="#"
-                        >
-                            Facebook
-                        </a>
-                    </li>
-                    <li className={styles.containerSocialNetworkItem}>
-                        <a
-                            className={styles.containerSocialNetworkLink}
-                            href="#"
-                        >
-                            Whatsapp
-                        </a>
-                    </li>
-                    <li className={styles.containerSocialNetworkItem}>
-                        <a
-                            className={styles.containerSocialNetworkLink}
-                            href="#"
-                        >
-                            Github
-                        </a>
-                    </li>
-                    <li className={styles.containerSocialNetworkItem}>
-                        <a
-                            className={styles.containerSocialNetworkLink}
-                            href="#"
-                        >
-                            Twitter
-                        </a>
-                    </li>
-                </ul>
-            </footer>
+        <footer className={styles.mainContainer}>
+            <span className={styles.containerAuthor}>
+                Created by Marco Encinas
+            </span>
+            <ul className={styles.contactContainer}>
+                <li className={styles.contactItem}>
+                    <a className={styles.contactLink} href="#">
+                        Facebook
+                    </a>
+                </li>
+                <li className={styles.contactItem}>
+                    <a className={styles.contactLink} href="#">
+                        Whatsapp
+                    </a>
+                </li>
+                <li className={styles.contactItem}>
+                    <a className={styles.contactLink} href="#">
+                        Github
+                    </a>
+                </li>
+                <li className={styles.contactItem}>
+                    <a className={styles.contactLink} href="#">
+                        Twitter
+                    </a>
+                </li>
+            </ul>
+        </footer>
     );
 }
 

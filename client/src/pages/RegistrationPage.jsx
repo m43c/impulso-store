@@ -26,18 +26,18 @@ function RegistrationPage() {
         if (!user) {
             navigate("/signup");
         } else {
-            navigate("/signin")
+            navigate("/signin");
         }
     }, [user]);
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.containerTitle}>Sign up for Impulso</h1>
+        <div className={styles.mainContainer}>
+            <h1 className={styles.title}>Sign up for Impulso</h1>
 
-            <form className={styles.containerForm} onSubmit={onSubmit}>
+            <form className={styles.formContainer} onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
                     <div
-                        className={`${styles.containerInput} ${styles.containerInputError}`}
+                        className={`${styles.input} ${styles.registrationErrors}`}
                         key={i}
                     >
                         {error}
@@ -46,48 +46,48 @@ function RegistrationPage() {
 
                 <input
                     type="text"
-                    className={styles.containerInput}
+                    className={styles.input}
                     placeholder="Username"
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className={styles.containerError}>
+                    <p className={styles.error}>
                         Username is required
                     </p>
                 )}
 
                 <input
                     type="email"
-                    className={styles.containerInput}
+                    className={styles.input}
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className={styles.containerError}>Email is required</p>
+                    <p className={styles.error}>Email is required</p>
                 )}
 
                 <input
                     type="password"
-                    className={styles.containerInput}
+                    className={styles.input}
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className={styles.containerError}>
+                    <p className={styles.error}>
                         Password is required
                     </p>
                 )}
 
                 <button
                     type="submit"
-                    className={`${styles.containerInput} ${styles.containerInputButton}`}
+                    className={`${styles.input} ${styles.button}`}
                 >
                     Sign Up
                 </button>
 
-                <p className={styles.containerQuestion}>
+                <p className={styles.question}>
                     Already have an account?{" "}
-                    <Link className={styles.containerLink} to="/signin">
+                    <Link className={styles.link} to="/signin">
                         Sing in
                     </Link>
                 </p>

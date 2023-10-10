@@ -1,4 +1,5 @@
-.container {
+.mainContainer {
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -9,17 +10,17 @@
     background-color: #ab91ca;
 }
 
-.containerTitle {
+.title {
     margin-top: 0;
 }
 
-.containerForm {
+.formContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.containerInput {
+.input {
     padding: 0.4em;
     margin-top: 1em;
     border: 1px solid gray;
@@ -29,30 +30,30 @@
     background-color: #f6e9df;
 }
 
-.containerInputError {
+.loginError {
     text-align: center;
-    background-color: #faa69e
+    background-color: #faa69e;
 }
 
-.containerError {
+.errorInput {
     margin: 0;
     padding-top: 0.2em;
     padding-left: 0.4em;
     color: #ee204e;
 }
 
-.containerInputButton {
+.button {
     background-color: #ffff70;
     cursor: pointer;
 }
 
-.containerQuestion {
+.question {
     margin: 0;
     margin-top: 1em;
     text-align: center;
 }
 
-.containerLink {
+.link {
     color: #ee204e;
     text-decoration: none;
 }
