@@ -11,7 +11,7 @@ function ProductsPage() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             {products.length == 0 ? (
                 <>
                     <h1 className={styles.noProducts}>
@@ -20,7 +20,7 @@ function ProductsPage() {
                 </>
             ) : (
                 <>
-                    <div className={styles.container}>
+                    <div className={styles.productsContainer}>
                         {products.map((product) => (
                             <ProductCard product={product} key={product._id} />
                         ))}

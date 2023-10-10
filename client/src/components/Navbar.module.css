@@ -1,9 +1,10 @@
-.container {
+.containerHeader{
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     font-family: "Lilita One";
+    border-radius: 5px;
     background-color: #dbf5fb;
 }
 

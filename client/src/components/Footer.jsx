@@ -2,7 +2,6 @@ import styles from "./Footer.module.css";
 
 function Footer() {
     return (
-        <div className={styles.container}>
             <footer className={styles.containerFooter}>
                 <span className={styles.containerAuthor}>
                     Created by Marco Encinas
@@ -42,7 +41,6 @@ function Footer() {
                     </li>
                 </ul>
             </footer>
-        </div>
     );
 }
 

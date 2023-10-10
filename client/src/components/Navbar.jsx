@@ -22,7 +22,7 @@ function Navbar() {
     }, []);
 
     return (
-        <div className={styles.container}>
+        <header className={styles.containerHeader}>
             <nav className={styles.containerNav}>
                 <ul className={styles.containerMenu}>
                     <li className={styles.containerMenuItem}>
@@ -130,7 +130,7 @@ function Navbar() {
                     </>
                 )}
             </nav>
-        </div>
+        </header>
     );
 }
 
