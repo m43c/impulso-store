@@ -25,10 +25,10 @@ export const signup = async (req, res) => {
 
         if (roles) {
             const foundRoles = await Role.find({ name: { $in: roles } });
-            newUser.roles = foundRoles.map((role) => role._id);
+            newUser.roles = foundRoles.map((role) => role.id);
         } else {
             const role = await Role.findOne({ name: "user" });
-            newUser.roles = [role._id];
+            newUser.roles = [role.id];
         }
 
         const savedUser = await newUser.save();
@@ -87,7 +87,7 @@ export const logout = (req, res) => {
 };
 
 export const profile = async (req, res) => {
-    const userFound = await User.findById(req.user.id);
+    const userFound = await User.findById(req.user.id).populate("roles");
 
     if (!userFound) {
         return res.status(400).json({ message: "User not found" });
@@ -97,6 +97,7 @@ export const profile = async (req, res) => {
         id: userFound._id,
         username: userFound.username,
         email: userFound.email,
+        roles: userFound.roles,
         createdAt: userFound.createdAt,
         updatedAt: userFound.updatedAt,
     });
@@ -124,6 +125,7 @@ export const verifyToken = async (req, res) => {
             id: userFound._id,
             username: userFound.username,
             email: userFound.email,
+            roles: userFound.roles,
         });
     });
 };
