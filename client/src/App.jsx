@@ -38,8 +38,8 @@ function App() {
                                     element={<ProductsPage />}
                                 />
                                 <Route
-                                    path="/products/:id"
-                                    element={<h1>Update Product</h1>}
+                                    path="/add-product/:id"
+                                    element={<ProductFormPage />}
                                 />
                             </Route>
                         </Routes>

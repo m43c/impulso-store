@@ -1,15 +1,37 @@
 import { useForm } from "react-hook-form";
 import { useProducts } from "../context/ProductsContext";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import styles from "./ProductFormPage.module.css";
 
 function ProductFormPage() {
-    const { register, handleSubmit } = useForm();
-    const { createProduct } = useProducts();
+    const { register, handleSubmit, setValue } = useForm();
+    const { createProduct, readProduct, updateProduct } = useProducts();
+    const params = useParams();
 
     const onSubmit = handleSubmit((data) => {
-        createProduct(data);
+        if (params.id) {
+            updateProduct(params.id, data);
+        } else {
+            createProduct(data);
+        }
     });
+
+    useEffect(() => {
+        async function loadProduct() {
+            if (params.id) {
+                const product = await readProduct(params.id);
+
+                setValue("name", product.name);
+                setValue("image", product.image);
+                setValue("description", product.description);
+                setValue("price", product.price);
+            }
+        }
+
+        loadProduct();
+    }, []);
 
     return (
         <div className={styles.mainContainer}>
@@ -50,7 +72,7 @@ function ProductFormPage() {
                         className={`${styles.formBtn} ${styles.formBtnCancel}`}
                         to="/products"
                     >
-                        Cancel
+                        Back
                     </Link>
 
                     <button

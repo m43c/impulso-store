@@ -1,4 +1,5 @@
 import { useProducts } from "../context/ProductsContext";
+import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
 
 function ProductCard({ product }) {
@@ -19,9 +20,12 @@ function ProductCard({ product }) {
                 >
                     Delete
                 </button>
-                <button className={`${styles.button} ${styles.editBtn}`}>
+                <Link
+                    className={`${styles.button} ${styles.editBtn}`}
+                    to={`/add-product/${product._id}`}
+                >
                     Edit
-                </button>
+                </Link>
             </div>
         </article>
     );

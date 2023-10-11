@@ -2,7 +2,9 @@ import { createContext, useContext, useState } from "react";
 import {
     createProductRequest,
     readProductsRequest,
+    readProductRequest,
     deleteProductRequest,
+    updateProductRequest,
 } from "../api/products";
 
 export const ProductContext = createContext();
@@ -37,6 +39,15 @@ export const ProductProvider = ({ children }) => {
         }
     };
 
+    const readProduct = async (id) => {
+        try {
+            const res = await readProductRequest(id);
+            return res.data;
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    };
+
     const deleteProduct = async (id) => {
         try {
             const res = await deleteProductRequest(id);
@@ -44,13 +55,28 @@ export const ProductProvider = ({ children }) => {
             if (res.status === 200)
                 setProducts(products.filter((product) => product._id !== id));
         } catch (error) {
-            console.log(error);
+            console.log(error.response.data);
+        }
+    };
+
+    const updateProduct = async (id, product) => {
+        try {
+            await updateProductRequest(id, product);
+        } catch (error) {
+            console.log(error.response.data);
         }
     };
 
     return (
         <ProductContext.Provider
-            value={{ createProduct, readProducts, products, deleteProduct }}
+            value={{
+                createProduct,
+                readProducts,
+                readProduct,
+                products,
+                deleteProduct,
+                updateProduct,
+            }}
         >
             {children}
         </ProductContext.Provider>

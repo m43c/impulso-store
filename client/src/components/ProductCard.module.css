@@ -22,13 +22,17 @@
 
 .button {
     width: 60px;
-    outline: none;
     border: 1px solid gray;
     border-radius: 5px;
+    outline: none;
+    cursor: pointer;
 }
 
 .editBtn {
+    color: #000000;
+    text-decoration: none;
     background-color: #ffff70;
+
 }
 
 .deleteBtn {
