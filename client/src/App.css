@@ -3,9 +3,14 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    font-family: "Lilita One";
     border-radius: 5px;
+    font-family: "Lilita One";
     background-color: #dbf5fb;
+}
+
+main {
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 footer {
