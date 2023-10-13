@@ -2,10 +2,14 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 
 function ProtectedRoute() {
-    const { loading, isAuthenticated } = useAuth();
+    const { isAuthenticated, loading } = useAuth();
 
     if (loading) {
-        return <h1>Loading...</h1>;
+        return (
+            <h1 style={{ fontFamily: "Lilita One", color: "#ffffff" }}>
+                Loading...
+            </h1>
+        );
     }
 
     if (!loading && !isAuthenticated) {
