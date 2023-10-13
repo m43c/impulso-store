@@ -1,24 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useAuth } from "../context/AuthContext";
-import { profileRequest } from "../api/auth";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function Navbar() {
-    const { user, isAuthenticated, logout } = useAuth();
-    const [data, setData] = useState(null);
+    const { user, isAuthenticated, profile, logout } = useAuth();
 
     useEffect(() => {
-        async function getData() {
-            try {
-                const res = await profileRequest();
-                setData(res.data);
-            } catch (error) {
-                console.log(error.response.data);
-            }
-        }
-
-        getData();
+        profile();
     }, []);
 
     return (
@@ -54,34 +43,56 @@ function Navbar() {
                 </li>
             </ul>
 
-            {user || isAuthenticated ? (
-                user.roles[0].name === "admin" ||
-                data.roles[0].name === "admin" ? (
-                    <>
-                        <div className={styles.authContainer}>
-                            <ul className={styles.menuContainer}>
-                                <li className={styles.menuItem}>
-                                    <Link
-                                        className={`${styles.menuLink} ${styles.authLink} ${styles.addProductLink}`}
-                                        to="/add-product"
-                                    >
-                                        Add Product
-                                    </Link>
-                                </li>
-                                <li className={styles.menuItem}>
-                                    <Link
-                                        className={`${styles.menuLink} ${styles.authLink}`}
-                                        to="/"
-                                        onClick={() => {
-                                            logout();
-                                        }}
-                                    >
-                                        Exit
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </>
+            {user ? (
+                isAuthenticated ? (
+                    user.roles[0].name === "admin" ? (
+                        <>
+                            <div className={styles.authContainer}>
+                                <ul className={styles.menuContainer}>
+                                    <li className={styles.menuItem}>
+                                        <Link
+                                            className={`${styles.menuLink} ${styles.authLink} ${styles.addProductLink}`}
+                                            to="/add-product"
+                                        >
+                                            Add Product
+                                        </Link>
+                                    </li>
+                                    <li className={styles.menuItem}>
+                                        <Link
+                                            className={`${styles.menuLink} ${styles.authLink}`}
+                                            to="/"
+                                            onClick={() => {
+                                                logout();
+                                            }}
+                                        >
+                                            Exit
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className={styles.authContainer}>
+                                <ul className={styles.menuContainer}>
+                                    <li className={styles.menuItem}>
+                                        Welcome {user.username}
+                                    </li>
+                                    <li className={styles.menuItem}>
+                                        <Link
+                                            className={`${styles.menuLink} ${styles.authLink}`}
+                                            to="/"
+                                            onClick={() => {
+                                                logout();
+                                            }}
+                                        >
+                                            Exit
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </>
+                    )
                 ) : (
                     <>
                         <div className={styles.authContainer}>
