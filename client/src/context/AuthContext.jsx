@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { signupRequest, signinRequest, verifyTokenRequest } from "../api/auth";
+import {
+    signupRequest,
+    signinRequest,
+    profileRequest,
+    verifyTokenRequest,
+} from "../api/auth";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -19,11 +24,11 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isLogged, setLogged] = useState(false);
 
     const signup = async (user) => {
         try {
             const res = await signupRequest(user);
-
             setUser(res.data);
         } catch (error) {
             setErrors(error.response.data);
@@ -36,6 +41,7 @@ export const AuthProvider = ({ children }) => {
 
             setUser(res.data);
             setIsAuthenticated(true);
+            setLogged(true)
         } catch (error) {
             if (Array.isArray(error.response.data)) {
                 return setErrors(error.response.data);
@@ -50,6 +56,15 @@ export const AuthProvider = ({ children }) => {
 
         setUser(null);
         setIsAuthenticated(false);
+    };
+
+    const profile = async () => {
+        try {
+            const res = await profileRequest();
+            setUser(res.data);
+        } catch (error) {
+            console.error(error.response.data);
+        }
     };
 
     useEffect(() => {
@@ -99,13 +114,15 @@ export const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
-                user,
-                isAuthenticated,
                 errors,
+                isAuthenticated,
+                isLogged,
                 loading,
+                logout,
+                profile,
                 signin,
                 signup,
-                logout,
+                user,
             }}
         >
             {children}
