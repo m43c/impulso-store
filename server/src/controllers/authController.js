@@ -9,7 +9,7 @@ export const signup = async (req, res) => {
     const { username, email, password, roles } = req.body;
 
     try {
-        const userFound = await User.findOne({ email });
+        const userFound = await User.findOne({ email }).populate("roles");
 
         if (userFound) {
             return res.status(400).json(["The email is already is use"]);
