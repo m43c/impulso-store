@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
@@ -10,16 +10,10 @@ function RegistrationPage() {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const {
-        signup,
-        user,
-        isAuthenticated,
-        errors: registrationErrors,
-    } = useAuth();
+    const { signup, user, errors: registrationErrors } = useAuth();
     const navigate = useNavigate();
-
-    const onSubmit = handleSubmit((values) => {
-        signup(values);
+    const onSubmit = handleSubmit((data) => {
+        signup(data);
     });
 
     useEffect(() => {
@@ -51,9 +45,7 @@ function RegistrationPage() {
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className={styles.error}>
-                        Username is required
-                    </p>
+                    <p className={styles.error}>Username is required</p>
                 )}
 
                 <input
@@ -73,9 +65,7 @@ function RegistrationPage() {
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className={styles.error}>
-                        Password is required
-                    </p>
+                    <p className={styles.error}>Password is required</p>
                 )}
 
                 <button
