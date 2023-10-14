@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import { useProducts } from "../context/ProductsContext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProductFormPage.module.css";
 
 function ProductFormPage() {
     const { register, handleSubmit, setValue } = useForm();
     const { createProduct, readProduct, updateProduct } = useProducts();
+    const [title, setTitle] = useState("New Product");
     const params = useParams();
 
     const onSubmit = handleSubmit((data) => {
@@ -22,11 +23,13 @@ function ProductFormPage() {
         async function loadProduct() {
             if (params.id) {
                 const product = await readProduct(params.id);
-
+                
                 setValue("name", product.name);
                 setValue("image", product.image);
                 setValue("description", product.description);
                 setValue("price", product.price);
+                
+                setTitle("Edit Product")
             }
         }
 
@@ -35,7 +38,7 @@ function ProductFormPage() {
 
     return (
         <div className={styles.mainContainer}>
-            <h1 className={styles.mainTitle}>New Product</h1>
+            <h1 className={styles.mainTitle}>{title}</h1>
 
             <form className={styles.formContainer} onSubmit={onSubmit}>
                 <input
