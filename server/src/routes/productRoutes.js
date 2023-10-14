@@ -14,15 +14,15 @@ import {
 const router = Router();
 
 router.post(
-    "/products",
+    "/add-product",
     validateToken,
     validateRole,
     validateSchema(createProductSchema),
     createProduct
 );
 router.get("/products", validateToken, readProducts);
-router.get("/products/:id", validateToken, readProduct);
-router.put("/products/:id", validateToken, validateRole, updateProduct);
-router.delete("/products/:id", validateToken, validateRole, deleteProduct);
+router.get("/product/:id", validateToken, readProduct);
+router.put("/product/:id", validateToken, validateRole, updateProduct);
+router.delete("/product/:id", validateToken, validateRole, deleteProduct);
 
 export default router;
