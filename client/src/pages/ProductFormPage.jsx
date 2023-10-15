@@ -7,7 +7,12 @@ import toast, { Toaster } from "react-hot-toast";
 import styles from "./ProductFormPage.module.css";
 
 function ProductFormPage() {
-    const { register, handleSubmit, setValue } = useForm();
+    const {
+        formState: { errors },
+        handleSubmit,
+        register,
+        setValue,
+    } = useForm();
     const { createProduct, readProduct, updateProduct } = useProducts();
     const [title, setTitle] = useState("New Product");
     const params = useParams();
@@ -23,6 +28,7 @@ function ProductFormPage() {
     const onSubmit = handleSubmit((data) => {
         if (params.id) {
             updateProduct(params.id, data);
+            notifySuccess();
         } else {
             createProduct(data);
             notifySuccess();
@@ -47,43 +53,54 @@ function ProductFormPage() {
     }, []);
 
     return (
-        <div className={styles.mainContainer}>
-            <h1 className={styles.mainTitle}>{title}</h1>
+        <div className={styles.container}>
+            <h1 className={styles.title}>{title}</h1>
 
-            <form className={styles.formContainer} onSubmit={onSubmit}>
+            <form className={styles.form} onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Name"
                     autoFocus
                     required
-                    className={styles.formInput}
+                    className={styles.input}
                     {...register("name", { required: true })}
                 />
+                {errors.name && (
+                    <p className={styles.inputError}>Name is required</p>
+                )}
 
                 <input
                     type="text"
                     placeholder="Image URL"
-                    className={styles.formInput}
+                    className={styles.input}
                     {...register("image", { required: true })}
                 />
+                {errors.image && (
+                    <p className={styles.inputError}>Image is required</p>
+                )}
 
                 <textarea
-                    rows="3"
                     placeholder="Description"
-                    className={`${styles.formInput} ${styles.formInputTextarea}`}
-                    {...register("description")}
+                    className={`${styles.input} ${styles.textareaInput}`}
+                    {...register("description", { required: true })}
                 ></textarea>
+                {errors.description && (
+                    <p className={styles.inputError}>Description is required</p>
+                )}
 
                 <input
                     type="text"
                     placeholder="Price"
-                    className={styles.formInput}
+                    className={styles.input}
                     {...register("price", { required: true })}
                 />
+                {errors.price && (
+                    <p className={styles.inputError}>Price is required</p>
+                )}
 
-                <div className={styles.formButtons}>
+                <div className={styles.buttons}>
                     <Link
-                        className={`${styles.formBtn} ${styles.formBtnCancel}`}
+                        className={`${styles.button} ${styles.buttonCancel}`}
                         to="/products"
                     >
                         Back
@@ -91,15 +108,12 @@ function ProductFormPage() {
 
                     <button
                         type="reset"
-                        className={`${styles.formBtn} ${styles.formBtnReset}`}
+                        className={`${styles.button} ${styles.buttonReset}`}
                     >
                         Reset
                     </button>
 
-                    <button
-                        className={`${styles.formBtn} ${styles.formBtnSave}`}
-                        // onClick={notifySuccess}
-                    >
+                    <button className={`${styles.button} ${styles.buttonSave}`}>
                         Save
                     </button>
                 </div>

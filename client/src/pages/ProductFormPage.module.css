@@ -1,26 +1,28 @@
-.mainContainer {
-    min-width: 300px;
+.container {
     padding: 1em;
     border-radius: 5px;
+    box-sizing: border-box;
     font-family: "Gabarito", sans-serif;
     color: #282828;
     background-color: #83a598;
 }
 
-.mainTitle {
+.title {
     margin-top: 0;
+    margin-bottom: 0.3em;
     text-align: center;
 }
 
-.formContainer {
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 0.9rem;
 }
 
-.formInput {
-    padding: 0.5em;
-    margin-bottom: 1em;
+.input {
+    padding: 0.4em;
+    margin-top: 1em;
     border: 1px solid #928374;
     border-radius: 3px;
     color: #282828;
@@ -28,12 +30,27 @@
     outline: none;
 }
 
-.formButtons {
-    display: flex;
-    justify-content: space-between;
+.textareaInput {
+    width: 280px;
+    max-width: 280px;
+    min-width: 280px;
+    max-height: 30px;
+    min-height: 30px;
 }
 
-.formBtn {
+.inputError {
+    margin: 0;
+    padding: 0.2em 0 0 0.4em;
+    color: #cc241d;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5em;
+}
+
+.button {
     width: 30%;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -46,14 +63,14 @@
     outline: none;
 }
 
-.formBtnCancel {
+.buttonCancel {
     background-color: #d3869b;
 }
 
-.formBtnReset {
+.buttonReset {
     background-color: #b8bb26;
 }
 
-.formBtnSave {
+.buttonSave {
     background-color: #fabd2f;
 }
