@@ -1,14 +1,9 @@
 .mainContainer {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-bottom: 0.2em;
     font-family: "Gabarito", sans-serif;
     color: #ebdbb2;
     background-color: #282828;
@@ -16,6 +11,9 @@
 
 .contactItems {
     display: flex;
+    margin: 0;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
 }
 
 .contactItem {
@@ -29,7 +27,12 @@
     text-decoration: none;
 }
 
-.nf.nf-cod-twitter {
-    background-color: red;
-    font-size: 3rem;
+.rightsContainer {
+    font-size: 0.8rem;
+}
+
+.copyrightSign {
+    padding-bottom: 0;
+    font-size: 1.3rem;
+    vertical-align: middle;
 }

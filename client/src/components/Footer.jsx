@@ -15,16 +15,19 @@ function Footer() {
                             <FaGithub />
                         </a>
                     </li>
+
                     <li className={styles.contactItem}>
                         <a className={styles.contactLink} href="#">
                             <FaWhatsapp />
                         </a>
                     </li>
+
                     <li className={styles.contactItem}>
                         <a className={styles.contactLink} href="#">
                             <FaFacebook />
                         </a>
                     </li>
+
                     <li className={styles.contactItem}>
                         <a className={styles.contactLink} href="#">
                             <FaTwitter />
@@ -32,11 +35,10 @@ function Footer() {
                     </li>
                 </ul>
             </div>
+
             <div className={styles.rightsContainer}>
-                <span className={styles.rights}>
-                    <i className="fa-regular fa-copyright"></i>
-                    2023 Marco Encinas - All rights reserved
-                </span>
+                <span className={styles.copyrightSign}>&copy;</span>
+                2023 Marco Encinas - All rights reserved
             </div>
         </footer>
     );
