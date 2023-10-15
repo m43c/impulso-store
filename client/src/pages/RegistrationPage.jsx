@@ -78,7 +78,7 @@ function RegistrationPage() {
                 <p className={styles.question}>
                     Already have an account?{" "}
                     <Link className={styles.link} to="/signin">
-                        Sing in
+                        Sing In
                     </Link>
                 </p>
             </form>

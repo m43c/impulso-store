@@ -2,8 +2,9 @@
     min-width: 300px;
     padding: 1em;
     border-radius: 5px;
-    font-family: "Lilita One";
-    background-color: #ab91ca;
+    font-family: "Gabarito", sans-serif;
+    color: #282828;
+    background-color: #83a598;
 }
 
 .mainTitle {
@@ -20,9 +21,10 @@
 .formInput {
     padding: 0.5em;
     margin-bottom: 1em;
-    border: 1px solid gray;
+    border: 1px solid #928374;
     border-radius: 3px;
-    background-color: #f6e9df;
+    color: #282828;
+    background-color: #ebdbb2;
     outline: none;
 }
 
@@ -35,22 +37,23 @@
     width: 30%;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border: 1px solid gray;
+    border: 1px solid #928374;
     border-radius: 3px;
     text-align: center;
-    color: #000000;
+    color: #282828;
+    font-weight: 800;
     text-decoration: none;
     outline: none;
 }
 
 .formBtnCancel {
-    background-color: #f8a0b3;
+    background-color: #d3869b;
 }
 
 .formBtnReset {
-    background-color: #92c7f2;
+    background-color: #b8bb26;
 }
 
 .formBtnSave {
-    background-color: #80ed99;
+    background-color: #fabd2f;
 }

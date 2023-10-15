@@ -1,9 +1,4 @@
-.container {
-    display: flex;
-    justify-content: center;
-}
-
 .title {
-    color: #ffffff;
-    font-family: "Lilita One";
+    font-family: "Gabarito", sans-serif;
+    color: #ebdbb2;
 }

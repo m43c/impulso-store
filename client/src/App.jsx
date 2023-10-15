@@ -9,7 +9,6 @@ import LoginPage from "./pages/LoginPage";
 import ProductFormPage from "./pages/ProductFormPage";
 import ProductsPage from "./pages/ProductsPage";
 import Footer from "./components/Footer";
-import "./App.css";
 
 function App() {
     return (
@@ -44,9 +43,7 @@ function App() {
                             </Route>
                         </Routes>
                     </main>
-                    <footer>
-                        <Footer />
-                    </footer>
+                    <Footer />
                 </BrowserRouter>
             </ProductProvider>
         </AuthProvider>

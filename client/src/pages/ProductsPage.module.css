@@ -1,18 +1,18 @@
 .mainContainer {
     width: 100%;
-    margin-top: 3.2em;
-    margin-bottom: 3em;
-    font-family: "Lilita One";
 }
 
 .messageNoProducts {
-    color: #ffffff;
+    font-family: "Gabarito", sans-serif;
+    color: #ebdbb2;
 }
 
 .productsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1em;
+    box-sizing: border-box;
+    margin-top: 4em;
+    padding: 1em 1em 4em 1em;
 }

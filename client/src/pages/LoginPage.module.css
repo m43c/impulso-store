@@ -6,12 +6,13 @@
     align-items: center;
     padding: 1.5em;
     border-radius: 5px;
-    font-family: "Lilita One";
-    background-color: #ab91ca;
+    font-family: "Gabarito", sans-serif;
+    background-color: #83a598;
 }
 
 .title {
     margin-top: 0;
+    color: #282828;
 }
 
 .formContainer {
@@ -21,39 +22,48 @@
 }
 
 .input {
-    padding: 0.4em;
+    padding: 0.5em;
     margin-top: 1em;
-    border: 1px solid gray;
+    border: 1px solid #928374;
     border-radius: 3px;
     font-size: inherit;
+    color: #282828;
+    background-color: #ebdbb2;
     outline: none;
-    background-color: #f6e9df;
 }
 
 .loginError {
     text-align: center;
-    background-color: #faa69e;
+    color: #282828;
+    background-color: #fb4934;
 }
 
 .errorInput {
     margin: 0;
     padding-top: 0.2em;
     padding-left: 0.4em;
-    color: #ee204e;
+    font-size: 1rem;
+    text-align: start;
+    color: #cc241d;
 }
 
 .button {
-    background-color: #ffff70;
+    font-weight: 800;
+    color: #282828;
+    background-color: #fabd2f;
     cursor: pointer;
 }
 
 .question {
     margin: 0;
     margin-top: 1em;
+    font-size: 1rem;
+    color: #282828;
     text-align: center;
 }
 
 .link {
-    color: #ee204e;
+    color: #cc241d;
+    font-weight: 600;
     text-decoration: none;
 }

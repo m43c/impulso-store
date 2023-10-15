@@ -2,9 +2,21 @@
 
 body {
     min-height: 100vh;
+    background-color: #282828;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1f1f1f;
 }

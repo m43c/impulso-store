@@ -13,7 +13,7 @@ function HomePage() {
     });
 
     return (
-        <div className={styles.container}>
+        <div className={styles.mainContainer}>
             <h1 className={styles.title}>Home Page</h1>
         </div>
     );
