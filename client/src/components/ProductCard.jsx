@@ -37,7 +37,15 @@ function ProductCard({ product }) {
                         </Link>
                     </>
                 ) : (
-                    <></>
+                    <>
+                        <button
+                            className={`${styles.button} ${styles.reserveBtn}`}
+                        >
+                            <a href="#" className={styles.link}>
+                                Reserve
+                            </a>
+                        </button>
+                    </>
                 )}
             </div>
         </article>
