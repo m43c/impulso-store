@@ -3,6 +3,7 @@ import { useProducts } from "../context/ProductsContext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "./ProductFormPage.module.css";
 
 function ProductFormPage() {
@@ -10,12 +11,21 @@ function ProductFormPage() {
     const { createProduct, readProduct, updateProduct } = useProducts();
     const [title, setTitle] = useState("New Product");
     const params = useParams();
+    const notifySuccess = () =>
+        toast.success("Saved successfully!", {
+            style: {
+                borderRadius: "5px",
+                color: "#282828",
+                background: "#ebdbb2",
+            },
+        });
 
     const onSubmit = handleSubmit((data) => {
         if (params.id) {
             updateProduct(params.id, data);
         } else {
             createProduct(data);
+            notifySuccess();
         }
     });
 
@@ -23,13 +33,13 @@ function ProductFormPage() {
         async function loadProduct() {
             if (params.id) {
                 const product = await readProduct(params.id);
-                
+
                 setValue("name", product.name);
                 setValue("image", product.image);
                 setValue("description", product.description);
                 setValue("price", product.price);
-                
-                setTitle("Edit Product")
+
+                setTitle("Edit Product");
             }
         }
 
@@ -44,16 +54,17 @@ function ProductFormPage() {
                 <input
                     type="text"
                     placeholder="Name"
-                    className={styles.formInput}
                     autoFocus
-                    {...register("name")}
+                    required
+                    className={styles.formInput}
+                    {...register("name", { required: true })}
                 />
 
                 <input
                     type="text"
                     placeholder="Image URL"
                     className={styles.formInput}
-                    {...register("image")}
+                    {...register("image", { required: true })}
                 />
 
                 <textarea
@@ -67,7 +78,7 @@ function ProductFormPage() {
                     type="text"
                     placeholder="Price"
                     className={styles.formInput}
-                    {...register("price")}
+                    {...register("price", { required: true })}
                 />
 
                 <div className={styles.formButtons}>
@@ -87,10 +98,12 @@ function ProductFormPage() {
 
                     <button
                         className={`${styles.formBtn} ${styles.formBtnSave}`}
+                        // onClick={notifySuccess}
                     >
                         Save
                     </button>
                 </div>
+                <Toaster position="top-center" reverseOrder={false} />
             </form>
         </div>
     );
