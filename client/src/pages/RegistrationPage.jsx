@@ -25,10 +25,10 @@ function RegistrationPage() {
     }, [user]);
 
     return (
-        <div className={styles.mainContainer}>
+        <div className={styles.container}>
             <h1 className={styles.title}>Sign up for Impulso</h1>
 
-            <form className={styles.formContainer} onSubmit={onSubmit}>
+            <form className={styles.form} onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
                     <div
                         className={`${styles.input} ${styles.registrationErrors}`}
@@ -45,7 +45,7 @@ function RegistrationPage() {
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className={styles.error}>Username is required</p>
+                    <p className={styles.inputError}>Username is required</p>
                 )}
 
                 <input
@@ -55,7 +55,7 @@ function RegistrationPage() {
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className={styles.error}>Email is required</p>
+                    <p className={styles.inputError}>Email is required</p>
                 )}
 
                 <input
@@ -65,7 +65,7 @@ function RegistrationPage() {
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className={styles.error}>Password is required</p>
+                    <p className={styles.inputError}>Password is required</p>
                 )}
 
                 <button

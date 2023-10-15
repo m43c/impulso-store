@@ -1,4 +1,4 @@
-.mainContainer {
+.container {
     max-width: 300px;
     display: flex;
     flex-direction: column;
@@ -11,14 +11,19 @@
 }
 
 .title {
-    margin-top: 0;
+    margin: 0;
     color: #282828;
 }
 
-.formContainer {
+.form {
     width: 100%;
     display: flex;
     flex-direction: column;
+    font-size: 0.9rem;
+}
+
+.input:first-child {
+    margin-top: 1.5em;
 }
 
 .input {
@@ -38,11 +43,10 @@
     background-color: #fb4934;
 }
 
-.errorInput {
+.inputError {
     margin: 0;
     padding-top: 0.2em;
     padding-left: 0.4em;
-    font-size: 1rem;
     text-align: start;
     color: #cc241d;
 }
@@ -56,8 +60,7 @@
 
 .question {
     margin: 0;
-    margin-top: 1em;
-    font-size: 1rem;
+    margin-top: 1.5em;
     color: #282828;
     text-align: center;
 }
