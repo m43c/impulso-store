@@ -72,13 +72,13 @@ function RegistrationPage() {
                     type="submit"
                     className={`${styles.input} ${styles.button}`}
                 >
-                    Sign Up
+                    Sign up
                 </button>
 
                 <p className={styles.question}>
                     Already have an account?{" "}
                     <Link className={styles.link} to="/signin">
-                        Sing In
+                        Sing in
                     </Link>
                 </p>
             </form>

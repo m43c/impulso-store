@@ -62,13 +62,13 @@ function LoginPage() {
                     type="submit"
                     className={`${styles.input} ${styles.button}`}
                 >
-                    Sign In
+                    Sign in
                 </button>
 
                 <p className={styles.question}>
-                    Already have an account?{" "}
+                    New to Impulso?{" "}
                     <Link className={styles.link} to="/signup">
-                        Sign Up
+                        Create an account
                     </Link>
                 </p>
             </form>
