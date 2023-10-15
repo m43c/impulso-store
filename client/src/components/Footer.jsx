@@ -1,3 +1,4 @@
+import { FaGithub, FaWhatsapp, FaFacebook, FaTwitter } from "react-icons/fa6";
 import styles from "./Footer.module.css";
 
 function Footer() {
@@ -10,16 +11,24 @@ function Footer() {
                             className={styles.contactLink}
                             href="https://github.com/m43c"
                             target="_blanck"
-                        ></a>
+                        >
+                            <FaGithub />
+                        </a>
                     </li>
                     <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#"></a>
+                        <a className={styles.contactLink} href="#">
+                            <FaWhatsapp />
+                        </a>
                     </li>
                     <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#"></a>
+                        <a className={styles.contactLink} href="#">
+                            <FaFacebook />
+                        </a>
                     </li>
                     <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#"></a>
+                        <a className={styles.contactLink} href="#">
+                            <FaTwitter />
+                        </a>
                     </li>
                 </ul>
             </div>
