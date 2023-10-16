@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 
 function Footer() {
     return (
-        <footer className={styles.mainContainer}>
+        <div className={styles.mainContainer}>
             <div className={styles.contactsContainer}>
                 <ul className={styles.contactItems}>
                     <li className={styles.contactItem}>
@@ -40,7 +40,7 @@ function Footer() {
                 <span className={styles.copyrightSign}>&copy;</span>
                 2023 Marco Encinas - All rights reserved
             </div>
-        </footer>
+        </div>
     );
 }
 
