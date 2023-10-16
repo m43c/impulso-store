@@ -1,53 +1,107 @@
 .mainContainer {
     display: flex;
-    justify-content: space-between;
-    padding: 0.5em;
+    padding: 0.5em 0;
+    margin: 0 1em;
     box-sizing: border-box;
     font-family: "Gabarito", sans-serif;
     background-color: #282828;
 }
 
 .menuContainer {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
 }
 
-.menuItem {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+.itemsList {
+    display: flex;
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
-.menuLink {
-    color: #ebdbb2;
-    text-decoration: none;
-    font-weight: 600;
+.item {
+    margin-left: 1em;
 }
 
-.menuLogo {
+.link {
+    color: #ebdbb2;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logo {
     font-size: 2rem;
     font-weight: 800;
 }
 
-.authContainer {
-    display: flex;
-    align-items: center;
-    color: #ebdbb2;
-    font-weight: 600;
-}
-
-.authLink {
-    padding: 0.2em 0.5em;
-    border-radius: 5px;
-    color: #282828;
-    font-weight: 600;
+.authItem {
+    padding: 0.2em 0.3em;
+    border-radius: 3px;
     background-color: #d3869b;
 }
 
-.addProductLink {
+.authWelcomeItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 600;
+    color: #ebdbb2;
+}
+
+.authLink {
+    color: #282828;
+}
+
+.addProductLink {
     background-color: #83a598;
+}
+
+.menuBtn {
+    display: none;
+    padding: 0;
+    border: none;
+    font-size: 1.3rem;
+    color: #ebdbb2;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menuContainer {
+        width: calc(100% - 2em);
+        min-height: calc(100vh - 3.3em);
+        position: fixed;
+        left: 100%;
+        top: 3.3em;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: #282828;
+    }
+
+    .menuContainer.visibleMenuContainer {
+        left: 1em;
+    }
+
+    .authContainer {
+        width: 100%;
+    }
+
+    .itemsList {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item {
+        margin-top: 1em;
+        margin-left: 0;
+    }
+
+    .menuBtn {
+        display: block;
+        margin-left: auto;
+    }
 }

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { useAuth } from "../context/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FaBars } from "react-icons/fa6";
 
 function Navbar() {
     const { user, isAuthenticated, profile, logout } = useAuth();
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
 
     useEffect(() => {
         profile();
@@ -12,75 +14,136 @@ function Navbar() {
 
     return (
         <nav className={styles.mainContainer}>
-            <ul className={styles.menuContainer}>
-                <li className={styles.menuItem}>
-                    <Link
-                        className={`${styles.menuLink} ${styles.menuLogo}`}
-                        to="/"
-                    >
-                        IMPULSO
-                    </Link>
-                </li>
-                <li className={styles.menuItem}>
-                    <Link className={styles.menuLink} to="/">
-                        Home
-                    </Link>
-                </li>
-                <li className={styles.menuItem}>
-                    <Link className={styles.menuLink} to="/">
-                        Category
-                    </Link>
-                </li>
-                <li className={styles.menuItem}>
-                    <Link className={styles.menuLink} to="/">
-                        Blog
-                    </Link>
-                </li>
-                <li className={styles.menuItem}>
-                    <Link className={styles.menuLink} to="/">
-                        Contact
-                    </Link>
-                </li>
-            </ul>
+            <Link className={`${styles.link} ${styles.logo}`} to="/">
+                IMPULSO
+            </Link>
 
-            {user ? (
-                isAuthenticated ? (
-                    user.roles[0].name === "admin" ? (
-                        <>
-                            <div className={styles.authContainer}>
-                                <ul className={styles.menuContainer}>
-                                    <li className={styles.menuItem}>
-                                        <Link
-                                            className={`${styles.menuLink} ${styles.authLink} ${styles.addProductLink}`}
-                                            to="/add-product"
+            <div
+                className={
+                    isMenuVisible
+                        ? `${styles.menuContainer} ${styles.visibleMenuContainer}`
+                        : styles.menuContainer
+                }
+            >
+                <ul className={`${styles.itemsList} ${styles.firstListItems}`}>
+                    <li className={`${styles.item} ${styles.menuItem}`}>
+                        <Link
+                            className={`${styles.link} ${styles.menuLink}`}
+                            to="/"
+                        >
+                            Home
+                        </Link>
+                    </li>
+
+                    <li className={`${styles.item} ${styles.menuItem}`}>
+                        <Link
+                            className={`${styles.link} ${styles.menuLink}`}
+                            to="/"
+                        >
+                            Category
+                        </Link>
+                    </li>
+
+                    <li className={`${styles.item} ${styles.menuItem}`}>
+                        <Link
+                            className={`${styles.link} ${styles.menuLink}`}
+                            to="/"
+                        >
+                            Blog
+                        </Link>
+                    </li>
+
+                    <li className={`${styles.item} ${styles.menuItem}`}>
+                        <Link
+                            className={`${styles.link} ${styles.menuLink}`}
+                            to="/"
+                        >
+                            Contact
+                        </Link>
+                    </li>
+                </ul>
+
+                {user ? (
+                    isAuthenticated ? (
+                        user.roles[0].name === "admin" ? (
+                            <>
+                                <div className={styles.authContainer}>
+                                    <ul
+                                        className={`${styles.itemsList} ${styles.secondListItems}`}
+                                    >
+                                        <li
+                                            className={`${styles.item} ${styles.authItem} ${styles.addProductLink}`}
                                         >
-                                            Add Product
-                                        </Link>
-                                    </li>
-                                    <li className={styles.menuItem}>
-                                        <Link
-                                            className={`${styles.menuLink} ${styles.authLink}`}
-                                            to="/"
-                                            onClick={() => {
-                                                logout();
-                                            }}
+                                            <Link
+                                                className={`${styles.link} ${styles.authLink}`}
+                                                to="/add-product"
+                                            >
+                                                Add Product
+                                            </Link>
+                                        </li>
+
+                                        <li
+                                            className={`${styles.item} ${styles.authItem}`}
                                         >
-                                            Exit
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </>
+                                            <Link
+                                                className={`${styles.link} ${styles.authLink}`}
+                                                to="/"
+                                                onClick={() => {
+                                                    logout();
+                                                }}
+                                            >
+                                                Exit
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className={styles.authContainer}>
+                                    <ul
+                                        className={`${styles.itemsList} ${styles.secondListItems}`}
+                                    >
+                                        <li
+                                            className={`${styles.item} ${styles.authWelcomeItem}`}
+                                        >
+                                            Welcome {user.username}
+                                        </li>
+
+                                        <li
+                                            className={`${styles.item} ${styles.authItem}`}
+                                        >
+                                            <Link
+                                                className={`${styles.link} ${styles.authLink}`}
+                                                to="/"
+                                                onClick={() => {
+                                                    logout();
+                                                }}
+                                            >
+                                                Exit
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </>
+                        )
                     ) : (
                         <>
                             <div className={styles.authContainer}>
-                                <ul className={styles.menuContainer}>
-                                    <li className={styles.menuItem}>
+                                <ul
+                                    className={`${styles.itemsList} ${styles.secondListItems}`}
+                                >
+                                    <li
+                                        className={`${styles.item} ${styles.authWelcomeItem}`}
+                                    >
                                         Welcome {user.username}
                                     </li>
-                                    <li className={styles.menuItem}>
+
+                                    <li
+                                        className={`${styles.item} ${styles.authItem}`}
+                                    >
                                         <Link
-                                            className={`${styles.menuLink} ${styles.authLink}`}
+                                            className={`${styles.link} ${styles.authLink}`}
                                             to="/"
                                             onClick={() => {
                                                 logout();
@@ -96,49 +159,44 @@ function Navbar() {
                 ) : (
                     <>
                         <div className={styles.authContainer}>
-                            <ul className={styles.menuContainer}>
-                                <li className={styles.menuItem}>
-                                    Welcome {user.username}
-                                </li>
-                                <li className={styles.menuItem}>
+                            <ul
+                                className={`${styles.itemsList} ${styles.secondListItems}`}
+                            >
+                                <li
+                                    className={`${styles.item} ${styles.authItem}`}
+                                >
                                     <Link
-                                        className={`${styles.menuLink} ${styles.authLink}`}
-                                        to="/"
-                                        onClick={() => {
-                                            logout();
-                                        }}
+                                        className={`${styles.link} ${styles.authLink}`}
+                                        to="/signin"
                                     >
-                                        Exit
+                                        Sign in
+                                    </Link>
+                                </li>
+
+                                <li
+                                    className={`${styles.item} ${styles.authItem}`}
+                                >
+                                    <Link
+                                        className={`${styles.link} ${styles.authLink}`}
+                                        to="/signup"
+                                    >
+                                        Sign up
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                     </>
-                )
-            ) : (
-                <>
-                    <div className={styles.authContainer}>
-                        <ul className={styles.menuContainer}>
-                            <li className={styles.menuItem}>
-                                <Link
-                                    className={`${styles.menuLink} ${styles.authLink}`}
-                                    to="/signin"
-                                >
-                                    Sign in
-                                </Link>
-                            </li>
-                            <li className={styles.menuItem}>
-                                <Link
-                                    className={`${styles.menuLink} ${styles.authLink}`}
-                                    to="/signup"
-                                >
-                                    Sign up
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </>
-            )}
+                )}
+            </div>
+
+            <button
+                className={styles.menuBtn}
+                onClick={() => {
+                    setIsMenuVisible(!isMenuVisible);
+                }}
+            >
+                <FaBars className={styles.menuIcon} />
+            </button>
         </nav>
     );
 }
