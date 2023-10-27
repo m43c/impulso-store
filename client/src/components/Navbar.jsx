@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Navbar.module.css";
 import { useAuth } from "../context/AuthContext";
-import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
     const { user, isAuthenticated, profile, logout } = useAuth();
@@ -63,14 +63,14 @@ function Navbar() {
                     </li>
                 </ul>
 
-                {user ? (
-                    isAuthenticated ? (
-                        user.roles[0].name === "admin" ? (
-                            <>
-                                <div className={styles.authContainer}>
-                                    <ul
-                                        className={`${styles.itemsList} ${styles.secondListItems}`}
-                                    >
+                <div className={styles.authContainer}>
+                    <ul
+                        className={`${styles.itemsList} ${styles.secondListItems}`}
+                    >
+                        {user ? (
+                            isAuthenticated ? (
+                                user.roles[0].name === "admin" ? (
+                                    <React.Fragment>
                                         <li
                                             className={`${styles.item} ${styles.authItem} ${styles.addProductLink}`}
                                         >
@@ -95,15 +95,9 @@ function Navbar() {
                                                 Exit
                                             </Link>
                                         </li>
-                                    </ul>
-                                </div>
-                            </>
-                        ) : (
-                            <>
-                                <div className={styles.authContainer}>
-                                    <ul
-                                        className={`${styles.itemsList} ${styles.secondListItems}`}
-                                    >
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
                                         <li
                                             className={`${styles.item} ${styles.authWelcomeItem}`}
                                         >
@@ -123,16 +117,10 @@ function Navbar() {
                                                 Exit
                                             </Link>
                                         </li>
-                                    </ul>
-                                </div>
-                            </>
-                        )
-                    ) : (
-                        <>
-                            <div className={styles.authContainer}>
-                                <ul
-                                    className={`${styles.itemsList} ${styles.secondListItems}`}
-                                >
+                                    </React.Fragment>
+                                )
+                            ) : (
+                                <React.Fragment>
                                     <li
                                         className={`${styles.item} ${styles.authWelcomeItem}`}
                                     >
@@ -152,16 +140,10 @@ function Navbar() {
                                             Exit
                                         </Link>
                                     </li>
-                                </ul>
-                            </div>
-                        </>
-                    )
-                ) : (
-                    <>
-                        <div className={styles.authContainer}>
-                            <ul
-                                className={`${styles.itemsList} ${styles.secondListItems}`}
-                            >
+                                </React.Fragment>
+                            )
+                        ) : (
+                            <React.Fragment>
                                 <li
                                     className={`${styles.item} ${styles.authItem}`}
                                 >
@@ -183,10 +165,10 @@ function Navbar() {
                                         Sign up
                                     </Link>
                                 </li>
-                            </ul>
-                        </div>
-                    </>
-                )}
+                            </React.Fragment>
+                        )}
+                    </ul>
+                </div>
             </div>
 
             <button
