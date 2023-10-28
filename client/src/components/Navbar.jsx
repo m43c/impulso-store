@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FaBars } from "react-icons/fa6";
 import MenuItem from "../components/MenuItem";
+import AuthItem from "../components/AuthItem";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
@@ -40,102 +41,51 @@ function Navbar() {
                         {user ? (
                             isAuthenticated ? (
                                 user.roles[0].name === "admin" ? (
-                                    <React.Fragment>
-                                        <li
-                                            className={`${styles.item} ${styles.authItem} ${styles.addProductLink}`}
-                                        >
-                                            <Link
-                                                className={`${styles.link} ${styles.authLink}`}
-                                                to="/add-product"
-                                            >
-                                                Add Product
-                                            </Link>
-                                        </li>
-
-                                        <li
-                                            className={`${styles.item} ${styles.authItem}`}
-                                        >
-                                            <Link
-                                                className={`${styles.link} ${styles.authLink}`}
-                                                to="/"
-                                                onClick={() => {
-                                                    logout();
-                                                }}
-                                            >
-                                                Exit
-                                            </Link>
-                                        </li>
-                                    </React.Fragment>
+                                    <>
+                                        <AuthItem
+                                            label="Add Product"
+                                            to="/add-product"
+                                            isAdmin={true}
+                                        />
+                                        <AuthItem
+                                            label="Exit"
+                                            to="/"
+                                            onClick={() => logout()}
+                                        />
+                                    </>
                                 ) : (
-                                    <React.Fragment>
-                                        <li
-                                            className={`${styles.item} ${styles.authWelcomeItem}`}
-                                        >
-                                            Welcome {user.username}
-                                        </li>
+                                    <>
+                                        <AuthItem
+                                            label={`Welcome ${user.username}`}
+                                            isNormalUser={true}
+                                        />
 
-                                        <li
-                                            className={`${styles.item} ${styles.authItem}`}
-                                        >
-                                            <Link
-                                                className={`${styles.link} ${styles.authLink}`}
-                                                to="/"
-                                                onClick={() => {
-                                                    logout();
-                                                }}
-                                            >
-                                                Exit
-                                            </Link>
-                                        </li>
-                                    </React.Fragment>
+                                        <AuthItem
+                                            label="Exit"
+                                            to="/"
+                                            onClick={() => logout()}
+                                        />
+                                    </>
                                 )
                             ) : (
-                                <React.Fragment>
-                                    <li
-                                        className={`${styles.item} ${styles.authWelcomeItem}`}
-                                    >
-                                        Welcome {user.username}
-                                    </li>
+                                <>
+                                    <AuthItem
+                                        label={`Welcome ${user.username}`}
+                                        isNormalUser={true}
+                                    />
 
-                                    <li
-                                        className={`${styles.item} ${styles.authItem}`}
-                                    >
-                                        <Link
-                                            className={`${styles.link} ${styles.authLink}`}
-                                            to="/"
-                                            onClick={() => {
-                                                logout();
-                                            }}
-                                        >
-                                            Exit
-                                        </Link>
-                                    </li>
-                                </React.Fragment>
+                                    <AuthItem
+                                        label="Exit"
+                                        to="/"
+                                        onClick={() => logout()}
+                                    />
+                                </>
                             )
                         ) : (
-                            <React.Fragment>
-                                <li
-                                    className={`${styles.item} ${styles.authItem}`}
-                                >
-                                    <Link
-                                        className={`${styles.link} ${styles.authLink}`}
-                                        to="/signin"
-                                    >
-                                        Sign in
-                                    </Link>
-                                </li>
-
-                                <li
-                                    className={`${styles.item} ${styles.authItem}`}
-                                >
-                                    <Link
-                                        className={`${styles.link} ${styles.authLink}`}
-                                        to="/signup"
-                                    >
-                                        Sign up
-                                    </Link>
-                                </li>
-                            </React.Fragment>
+                            <>
+                                <AuthItem label="Sign in" to="/signin" />
+                                <AuthItem label="Sign up" to="/signup" />
+                            </>
                         )}
                     </ul>
                 </div>
