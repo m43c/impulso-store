@@ -2,21 +2,19 @@
     margin-left: 1em;
     padding: 0.2em 0.3em;
     border-radius: 3px;
-    background-color: #d3869b;
+    background-color: #d4879c;
 }
 
-.welcome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.2em 0.3em;
-    border-radius: 3px;
-    background-color: #ebdbb2;
-}
 .link {
     font-weight: 600;
     color: #282828;
     text-decoration: none;
+}
+
+.welcome {
+    padding: 0.2em 0.3em;
+    border-radius: 3px;
+    background-color: #83a598;
 }
 
 .addProduct {
