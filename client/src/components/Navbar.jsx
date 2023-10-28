@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FaBars } from "react-icons/fa6";
+import MenuItem from "../components/MenuItem";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
@@ -14,7 +15,7 @@ function Navbar() {
 
     return (
         <nav className={styles.mainContainer}>
-            <Link className={`${styles.link} ${styles.logo}`} to="/">
+            <Link className={styles.logo} to="/">
                 IMPULSO
             </Link>
 
@@ -26,41 +27,10 @@ function Navbar() {
                 }
             >
                 <ul className={`${styles.itemsList} ${styles.firstListItems}`}>
-                    <li className={`${styles.item} ${styles.menuItem}`}>
-                        <Link
-                            className={`${styles.link} ${styles.menuLink}`}
-                            to="/"
-                        >
-                            Home
-                        </Link>
-                    </li>
-
-                    <li className={`${styles.item} ${styles.menuItem}`}>
-                        <Link
-                            className={`${styles.link} ${styles.menuLink}`}
-                            to="/"
-                        >
-                            Category
-                        </Link>
-                    </li>
-
-                    <li className={`${styles.item} ${styles.menuItem}`}>
-                        <Link
-                            className={`${styles.link} ${styles.menuLink}`}
-                            to="/"
-                        >
-                            Blog
-                        </Link>
-                    </li>
-
-                    <li className={`${styles.item} ${styles.menuItem}`}>
-                        <Link
-                            className={`${styles.link} ${styles.menuLink}`}
-                            to="/"
-                        >
-                            Contact
-                        </Link>
-                    </li>
+                    <MenuItem label="Home" to="/" />
+                    <MenuItem label="Products" to="/Products" />
+                    <MenuItem label="Blog" to="/" />
+                    <MenuItem label="Contact" to="/" />
                 </ul>
 
                 <div className={styles.authContainer}>
