@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+import { MONGODB_URI } from "./config.js";
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/impulsoStore");
-        console.log("DB is connected");
+        const db = await mongoose.connect(MONGODB_URI);
+        console.log("Connected to", db.connection.name);
     } catch (error) {
         console.log(error);
     }
