@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isLogged, setLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState(false);
 
     const signup = async (user) => {
         try {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
             setUser(res.data);
             setIsAuthenticated(true);
-            setLogged(true);
+            setIsLogged(true);
         } catch (error) {
             if (Array.isArray(error.response.data)) {
                 return setErrors(error.response.data);
@@ -56,6 +56,7 @@ export const AuthProvider = ({ children }) => {
 
         setUser(null);
         setIsAuthenticated(false);
+        setIsLogged(false);
     };
 
     const profile = async () => {

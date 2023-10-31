@@ -11,7 +11,9 @@ function RegistrationPage() {
         formState: { errors },
     } = useForm();
     const { signup, user, errors: registrationErrors } = useAuth();
+
     const navigate = useNavigate();
+    
     const onSubmit = handleSubmit((data) => {
         signup(data);
     });

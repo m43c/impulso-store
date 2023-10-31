@@ -10,8 +10,11 @@ function LoginPage() {
         handleSubmit,
         formState: { errors },
     } = useForm();
+
     const { errors: signinErrors, isLogged, signin } = useAuth();
+
     const navigate = useNavigate();
+    
     const onSubmit = handleSubmit((data) => {
         signin(data);
     });

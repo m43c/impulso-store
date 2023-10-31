@@ -3,15 +3,6 @@ import { useAuth } from "../context/AuthContext";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
-    const { isLogged } = useAuth();
-
-    useEffect(() => {
-        if (isLogged) {
-            window.location.reload();
-            return;
-        }
-    });
-
     return (
         <div className={styles.mainContainer}>
             <section className={styles.welcomeContainer}>
