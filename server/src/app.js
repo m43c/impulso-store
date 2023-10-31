@@ -10,6 +10,7 @@ const app = express();
 
 createRoles();
 
+// Middlewares
 app.use(
     cors({
         origin: "http://localhost:5173",
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
 
+// Routes
 app.use("/api", authRoutes);
 app.use("/api", productRoutes);
 
