@@ -7,10 +7,13 @@ import AuthItem from "../components/AuthItem";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
-    const { user, isAuthenticated, logout } = useAuth();
+    const { isAuthenticated, logout, user } = useAuth();
+
     const [isMenuVisible, setIsMenuVisible] = useState(false);
+
     const localUser = JSON.parse(localStorage.getItem("user"));
     const userRoleName = localUser?.roles[0]?.name || user?.roles[0]?.name;
+    const username = localUser?.username || user?.username;
 
     return (
         <nav className={styles.mainContainer}>
@@ -54,7 +57,7 @@ function Navbar() {
                                 ) : (
                                     <>
                                         <AuthItem
-                                            label={`Welcome ${user.username}`}
+                                            label={`Welcome ${username}`}
                                             isNormalUser={true}
                                         />
 
@@ -68,7 +71,7 @@ function Navbar() {
                             ) : (
                                 <>
                                     <AuthItem
-                                        label={`Welcome ${user.username}`}
+                                        label={`Welcome ${username}`}
                                         to="/signin"
                                         isNormalUser={true}
                                     />

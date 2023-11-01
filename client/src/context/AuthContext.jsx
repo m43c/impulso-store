@@ -44,10 +44,11 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await signinRequest(user);
 
+            persistUser(res.data);
+
             setUser(res.data);
             setIsAuthenticated(true);
             setIsLogged(true);
-            persistUser(res.data);
         } catch (error) {
             if (Array.isArray(error.response.data)) {
                 return setErrors(error.response.data);
@@ -60,10 +61,11 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         Cookies.remove("token");
 
+        removeUser();
+
         setUser(null);
         setIsAuthenticated(false);
         setIsLogged(false);
-        removeUser();
     };
 
     const profile = async () => {
@@ -90,6 +92,8 @@ export const AuthProvider = ({ children }) => {
             const cookies = Cookies.get();
 
             if (!cookies.token) {
+                Cookies.remove("token");
+
                 setUser(null);
                 setIsAuthenticated(false);
                 setLoading(false);
@@ -100,6 +104,8 @@ export const AuthProvider = ({ children }) => {
                 const res = await verifyTokenRequest(cookies.token);
 
                 if (!res.data) {
+                    Cookies.remove("user");
+
                     setUser(null);
                     setIsAuthenticated(false);
                     setLoading(false);
@@ -110,6 +116,8 @@ export const AuthProvider = ({ children }) => {
                 setIsAuthenticated(true);
                 setLoading(false);
             } catch (error) {
+                Cookies.remove("token");
+
                 setUser(null);
                 setIsAuthenticated(false);
                 setLoading(false);
