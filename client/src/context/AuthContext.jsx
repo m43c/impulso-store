@@ -26,6 +26,11 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [isLogged, setIsLogged] = useState(false);
 
+    const persistUser = (userData) =>
+        localStorage.setItem("user", JSON.stringify(userData));
+
+    const removeUser = () => localStorage.removeItem("user");
+
     const signup = async (user) => {
         try {
             const res = await signupRequest(user);
@@ -42,6 +47,7 @@ export const AuthProvider = ({ children }) => {
             setUser(res.data);
             setIsAuthenticated(true);
             setIsLogged(true);
+            persistUser(res.data);
         } catch (error) {
             if (Array.isArray(error.response.data)) {
                 return setErrors(error.response.data);
@@ -57,6 +63,7 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
         setIsAuthenticated(false);
         setIsLogged(false);
+        removeUser();
     };
 
     const profile = async () => {

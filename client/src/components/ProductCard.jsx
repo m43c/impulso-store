@@ -1,16 +1,9 @@
 import { useProducts } from "../context/ProductsContext";
-import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
-import { useEffect } from "react";
 
-function ProductCard({ product }) {
+function ProductCard({ product, userRoleName }) {
     const { deleteProduct } = useProducts();
-    const { profile, user } = useAuth();
-
-    useEffect(() => {
-        profile();
-    }, []);
 
     return (
         <article key={product._id} className={styles.product}>
@@ -19,7 +12,7 @@ function ProductCard({ product }) {
             <p className={styles.description}>{product.description}</p>
             <span className={styles.price}>{`${product.price}$`}</span>
             <div className={styles.buttons}>
-                {user.roles[0].name === "admin" ? (
+                {userRoleName === "admin" ? (
                     <>
                         <button
                             className={`${styles.button} ${styles.deleteBtn}`}

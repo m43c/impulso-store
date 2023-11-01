@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 import MenuItem from "../components/MenuItem";
 import AuthItem from "../components/AuthItem";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
-    const { user, isAuthenticated, profile, logout } = useAuth();
+    const { user, isAuthenticated, logout } = useAuth();
     const [isMenuVisible, setIsMenuVisible] = useState(false);
-
-    useEffect(() => {
-        profile();
-    }, []);
+    const localUser = JSON.parse(localStorage.getItem("user"));
+    const userRoleName = localUser?.roles[0]?.name || user?.roles[0]?.name;
 
     return (
         <nav className={styles.mainContainer}>
@@ -40,7 +38,7 @@ function Navbar() {
                     >
                         {user ? (
                             isAuthenticated ? (
-                                user.roles[0].name === "admin" ? (
+                                userRoleName === "admin" ? (
                                     <>
                                         <AuthItem
                                             label="Add Product"
@@ -71,6 +69,7 @@ function Navbar() {
                                 <>
                                     <AuthItem
                                         label={`Welcome ${user.username}`}
+                                        to="/signin"
                                         isNormalUser={true}
                                     />
 
