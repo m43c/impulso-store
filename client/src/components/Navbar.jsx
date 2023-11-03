@@ -58,6 +58,7 @@ function Navbar() {
                                     <>
                                         <AuthItem
                                             label={`Welcome ${username}`}
+                                            to="/signin"
                                             isNormalUser={true}
                                         />
 

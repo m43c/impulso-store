@@ -1,22 +1,17 @@
-import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import { Navigate, Outlet } from "react-router-dom";
 
 function ProtectedRoute() {
-    const { isAuthenticated, loading } = useAuth();
+    const { isAuthenticated } = useAuth();
 
-    if (loading) {
-        return (
-            <h1 style={{ fontFamily: "Lilita One", color: "#ffffff" }}>
-                Loading...
-            </h1>
-        );
+    const authentication = localStorage.getItem("isAuthenticated");
+    const login = localStorage.getItem("isLogged");
+
+    if ((authentication && login) || isAuthenticated) {
+        return <Outlet />;
+    } else {
+        return <Navigate to="/signin" replace />;
     }
-
-    if (!loading && !isAuthenticated) {
-        return <Navigate to="/" replace />;
-    }
-
-    return <Outlet />;
 }
 
 export default ProtectedRoute;

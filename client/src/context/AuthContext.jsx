@@ -23,18 +23,29 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [errors, setErrors] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isLogged, setIsLogged] = useState(false);
 
     const persistUser = (userData) =>
         localStorage.setItem("user", JSON.stringify(userData));
 
-    const removeUser = () => localStorage.removeItem("user");
+    const cleanStorage = () => {
+        Cookies.remove("token");
+        localStorage.removeItem("user");
+        localStorage.removeItem("isLogged");
+        localStorage.removeItem("isAuthenticated");
+    };
+
+    const cleanUserSession = () => {
+        setUser(null);
+        setIsAuthenticated(false);
+        cleanStorage();
+    };
 
     const signup = async (user) => {
         try {
             const res = await signupRequest(user);
+
             setUser(res.data);
+            persistUser(res.data);
         } catch (error) {
             setErrors(error.response.data);
         }
@@ -44,11 +55,13 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await signinRequest(user);
 
-            persistUser(res.data);
-
             setUser(res.data);
             setIsAuthenticated(true);
-            setIsLogged(true);
+
+            persistUser(res.data);
+
+            localStorage.setItem("isLogged", true);
+            localStorage.setItem("isAuthenticated", true);
         } catch (error) {
             if (Array.isArray(error.response.data)) {
                 return setErrors(error.response.data);
@@ -59,13 +72,10 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        Cookies.remove("token");
-
-        removeUser();
-
         setUser(null);
         setIsAuthenticated(false);
-        setIsLogged(false);
+
+        cleanStorage();
     };
 
     const profile = async () => {
@@ -88,43 +98,29 @@ export const AuthProvider = ({ children }) => {
     }, [errors]);
 
     useEffect(() => {
-        async function checkSignin() {
+        (async () => {
             const cookies = Cookies.get();
 
             if (!cookies.token) {
-                Cookies.remove("token");
-
-                setUser(null);
-                setIsAuthenticated(false);
-                setLoading(false);
+                cleanUserSession();
                 return;
             }
 
             try {
-                const res = await verifyTokenRequest(cookies.token);
+                const response = await verifyTokenRequest(cookies.token);
 
-                if (!res.data) {
-                    Cookies.remove("user");
-
-                    setUser(null);
-                    setIsAuthenticated(false);
-                    setLoading(false);
+                if (!response.data) {
+                    cleanUserSession();
                     return;
                 }
 
-                setUser(res.data);
+                setUser(response.data);
                 setIsAuthenticated(true);
-                setLoading(false);
             } catch (error) {
-                Cookies.remove("token");
-
-                setUser(null);
-                setIsAuthenticated(false);
-                setLoading(false);
+                console.log(error);
+                cleanUserSession();
             }
-        }
-
-        checkSignin();
+        })();
     }, []);
 
     return (
@@ -132,8 +128,6 @@ export const AuthProvider = ({ children }) => {
             value={{
                 errors,
                 isAuthenticated,
-                isLogged,
-                loading,
                 logout,
                 profile,
                 signin,

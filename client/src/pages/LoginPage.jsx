@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./LoginPage.module.css";
-import { useEffect } from "react";
 
 function LoginPage() {
     const {
@@ -11,21 +10,15 @@ function LoginPage() {
         formState: { errors },
     } = useForm();
 
-    const { errors: signinErrors, isLogged, signin } = useAuth();
+    const { errors: signinErrors, signin } = useAuth();
 
     const navigate = useNavigate();
-    
-    const onSubmit = handleSubmit((data) => {
-        signin(data);
-    });
 
-    useEffect(() => {
-        if (!isLogged) {
-            navigate("/signin");
-        } else {
-            navigate("/products");
-        }
-    }, [isLogged]);
+    const onSubmit = handleSubmit(async (data) => {
+        await signin(data)
+            .then(() => navigate("/products"))
+            .catch(() => navigate("/signin"));
+    });
 
     return (
         <div className={styles.container}>
