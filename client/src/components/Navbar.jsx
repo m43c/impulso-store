@@ -16,17 +16,15 @@ function Navbar() {
     const username = localUser?.username || user?.username;
 
     return (
-        <header className="fixed w-full flex justify-between px-4 py-1 top-0 left-0 text-foreground font-medium bg-gradient-to-b from-dark0 to-dark md:px-8 lg:px-12">
+        <header className="header md:px-8 lg:px-12">
             <Link className="text-4xl font-bold sm:text-3xl " to="/">
                 IMPULSO
             </Link>
 
             <nav
-                className={
-                    isMenuVisible
-                        ? "mobile-menu"
-                        : "mobile-menu translate-x-full sm:static sm:flex sm:justify-between sm:my-auto sm:text-sm sm:bg-none sm:translate-x-0 sm:transition-none lg:text-[16px]"
-                }
+                className={`nav ${
+                    isMenuVisible ? "" : "sm:nav-sm translate-x-full"
+                } lg:text-[16px]`}
             >
                 <ul className="sm:flex">
                     <MenuItem label="Home" to="/" />
@@ -45,6 +43,7 @@ function Navbar() {
                                         to="/add-product"
                                         isAdmin={true}
                                     />
+
                                     <AuthItem
                                         label="Exit"
                                         to="/"
