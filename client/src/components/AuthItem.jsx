@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import styles from "../components/AuthItem.module.css";
 
 function AuthItem({ to, label, isAdmin, isNormalUser, onClick }) {
-    const itemClasses = () => {
-        let assignedClass = styles.item;
-
-        if (isAdmin) {
-            assignedClass = `${styles.item} ${styles.addProduct}`;
-        } else if (isNormalUser) {
-            assignedClass = styles.welcome;
-        }
-
-        return assignedClass;
+    const background = () => {
+        return isAdmin
+            ? "bg-gradient-to-t from-clean-green to-forest-green"
+            : isNormalUser
+            ? "bg-gradient-to-t from-light-blue to-blue-gray"
+            : "bg-gradient-to-t from-pink to-magneta";
     };
 
     return (
-        <li className={itemClasses()}>
-            <Link className={styles.link} to={to} onClick={onClick}>
+        <li className="p-3 sm:p-0">
+            <Link
+                className={`p-1 rounded-[3px] text-dark font-semibold ${background()} sm:ml-4`}
+                to={to}
+                onClick={onClick}
+            >
                 {label}
             </Link>
         </li>

@@ -15,34 +15,27 @@ function App() {
         <AuthProvider>
             <ProductProvider>
                 <BrowserRouter>
-                    <header>
-                        <Navbar />
-                    </header>
-                    <main>
-                        <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route
-                                path="/signup"
-                                element={<RegistrationPage />}
-                            />
-                            <Route path="/signin" element={<LoginPage />} />
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/signup" element={<RegistrationPage />} />
+                        <Route path="/signin" element={<LoginPage />} />
 
-                            <Route element={<ProtectedRoute />}>
-                                <Route
-                                    path="/add-product"
-                                    element={<ProductFormPage />}
-                                />
-                                <Route
-                                    path="/products"
-                                    element={<ProductsPage />}
-                                />
-                                <Route
-                                    path="/add-product/:id"
-                                    element={<ProductFormPage />}
-                                />
-                            </Route>
-                        </Routes>
-                    </main>
+                        <Route element={<ProtectedRoute />}>
+                            <Route
+                                path="/add-product"
+                                element={<ProductFormPage />}
+                            />
+                            <Route
+                                path="/products"
+                                element={<ProductsPage />}
+                            />
+                            <Route
+                                path="/add-product/:id"
+                                element={<ProductFormPage />}
+                            />
+                        </Route>
+                    </Routes>
                     <Footer />
                 </BrowserRouter>
             </ProductProvider>

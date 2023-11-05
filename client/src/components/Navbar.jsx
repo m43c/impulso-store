@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 import MenuItem from "../components/MenuItem";
 import AuthItem from "../components/AuthItem";
-import styles from "./Navbar.module.css";
 
 function Navbar() {
     const { isAuthenticated, logout, user } = useAuth();
@@ -16,59 +16,41 @@ function Navbar() {
     const username = localUser?.username || user?.username;
 
     return (
-        <nav className={styles.mainContainer}>
-            <Link className={styles.logo} to="/">
+        <header className="flex justify-between px-3 py-1 text-foreground font-medium bg-gradient-to-b from-dark0 to-dark">
+            <Link className="text-4xl font-bold sm:text-3xl " to="/">
                 IMPULSO
             </Link>
 
-            <div
+            <nav
                 className={
                     isMenuVisible
-                        ? `${styles.menuContainer} ${styles.visibleMenuContainer}`
-                        : styles.menuContainer
+                        ? "mobile-menu"
+                        : "mobile-menu translate-x-full sm:static sm:flex sm:justify-between sm:my-auto sm:text-sm sm:bg-none sm:translate-x-0 sm:transition-none"
                 }
             >
-                <ul className={`${styles.itemsList} ${styles.firstListItems}`}>
+                <ul className="sm:flex">
                     <MenuItem label="Home" to="/" />
                     <MenuItem label="Products" to="/Products" />
                     <MenuItem label="Blog" to="/" />
                     <MenuItem label="Contact" to="/" />
                 </ul>
 
-                <div className={styles.authContainer}>
-                    <ul
-                        className={`${styles.itemsList} ${styles.secondListItems}`}
-                    >
-                        {user ? (
-                            isAuthenticated ? (
-                                userRoleName === "admin" ? (
-                                    <>
-                                        <AuthItem
-                                            label="Add Product"
-                                            to="/add-product"
-                                            isAdmin={true}
-                                        />
-                                        <AuthItem
-                                            label="Exit"
-                                            to="/"
-                                            onClick={() => logout()}
-                                        />
-                                    </>
-                                ) : (
-                                    <>
-                                        <AuthItem
-                                            label={`Welcome ${username}`}
-                                            to="/signin"
-                                            isNormalUser={true}
-                                        />
-
-                                        <AuthItem
-                                            label="Exit"
-                                            to="/"
-                                            onClick={() => logout()}
-                                        />
-                                    </>
-                                )
+                <ul className="sm:flex">
+                    {user ? (
+                        isAuthenticated ? (
+                            userRoleName === "admin" ? (
+                                <>
+                                    <AuthItem
+                                        label="Add Product"
+                                        to="/add-product"
+                                        isAdmin={true}
+                                    />
+                                    <AuthItem
+                                        label="Exit"
+                                        to="/"
+                                        onClick={() => logout()}
+                                    />
+                                </>
                             ) : (
                                 <>
                                     <AuthItem
@@ -86,23 +68,41 @@ function Navbar() {
                             )
                         ) : (
                             <>
-                                <AuthItem label="Sign in" to="/signin" />
-                                <AuthItem label="Sign up" to="/signup" />
+                                <AuthItem
+                                    label={`Welcome ${username}`}
+                                    to="/signin"
+                                    isNormalUser={true}
+                                />
+
+                                <AuthItem
+                                    label="Exit"
+                                    to="/"
+                                    onClick={() => logout()}
+                                />
                             </>
-                        )}
-                    </ul>
-                </div>
-            </div>
+                        )
+                    ) : (
+                        <>
+                            <AuthItem label="Sign in" to="/signin" />
+                            <AuthItem label="Sign up" to="/signup" />
+                        </>
+                    )}
+                </ul>
+            </nav>
 
             <button
-                className={styles.menuBtn}
+                className="text-3xl"
                 onClick={() => {
                     setIsMenuVisible(!isMenuVisible);
                 }}
             >
-                <FaBars className={styles.menuIcon} />
+                {isMenuVisible ? (
+                    <IoClose className="text-4xl sm:hidden" />
+                ) : (
+                    <FaBars className="sm:hidden" />
+                )}
             </button>
-        </nav>
+        </header>
     );
 }
 

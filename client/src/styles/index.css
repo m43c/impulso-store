@@ -1,24 +1,15 @@
 @import "./normalize.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    min-height: 100vh;
-    background-color: #282828;
-}
+@layer components {
+    .button {
+        @apply w-20 py-1 rounded font-semibold;
+    }
 
-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-main {
-    width: 100%;
-    min-height: calc(100vh - 3.3em);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .mobile-menu {
+        @apply fixed w-full h-full top-[48px] left-0 text-center bg-gradient-to-t from-dark0 to-dark;
+    }
 }

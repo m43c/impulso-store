@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "../components/MenuItem.module.css";
 
 function MenuItem({ to, label }) {
     return (
-        <li className={styles.item}>
-            <Link className={styles.link} to={to}>
-                {label}
-            </Link>
+        <li className="p-3 sm:p-0">
+            <Link className="sm:ml-4" to={to}>{label}</Link>
         </li>
     );
 }
