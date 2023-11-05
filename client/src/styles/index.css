@@ -5,11 +5,48 @@
 @tailwind utilities;
 
 @layer components {
-    .button {
-        @apply w-20 py-1 rounded font-semibold;
+    .header {
+        @apply fixed w-full flex justify-between px-4 py-1 top-0 left-0 text-foreground font-medium bg-gradient-to-b from-dark0 to-dark;
     }
 
-    .mobile-menu {
+    .nav {
         @apply fixed w-full h-full top-[48px] left-0 text-center bg-gradient-to-t from-dark0 to-dark;
+    }
+
+    .nav-sm {
+        @apply sm:static sm:flex sm:justify-between sm:my-auto sm:text-sm sm:bg-none sm:translate-x-0 sm:transition-none;
+    }
+
+    .main {
+        @apply grid gap-y-8 main-areas px-4 py-8 mt-[44px] text-foreground;
+    }
+
+    .main-md {
+        @apply md:px-8 md:gap-x-4 md:py-4 md:main-areas-md md:grid-cols-[60%_auto];
+    }
+
+    .main-areas {
+        grid-template-areas:
+            "welcome"
+            "info"
+            "location";
+    }
+
+    .main-areas-md {
+        grid-template-areas:
+            "welcome info"
+            "location location";
+    }
+
+    .main-container {
+        @apply flex flex-col space-y-4 text-center;
+    }
+
+    .main-article {
+        @apply grid gap-y-2 justify-items-center;
+    }
+
+    .button {
+        @apply w-20 py-1 rounded font-semibold;
     }
 }
