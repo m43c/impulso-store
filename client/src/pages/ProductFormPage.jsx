@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import styles from "./ProductFormPage.module.css";
 
 function ProductFormPage() {
     const {
@@ -53,69 +52,61 @@ function ProductFormPage() {
     }, []);
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>{title}</h1>
+        <div className="form-container w-[300px] sm:w-[350px]">
+            <h1 className="form-title">{title}</h1>
 
-            <form className={styles.form} onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
                 <input
+                    className="form-input"
                     type="text"
                     placeholder="Name"
                     autoFocus
                     required
-                    className={styles.input}
                     {...register("name", { required: true })}
                 />
                 {errors.name && (
-                    <p className={styles.inputError}>Name is required</p>
+                    <p className="form-input-error">Name is required</p>
                 )}
 
                 <input
+                    className="form-input"
                     type="text"
                     placeholder="Image URL"
-                    className={styles.input}
                     {...register("image", { required: true })}
                 />
                 {errors.image && (
-                    <p className={styles.inputError}>Image is required</p>
+                    <p className="form-input-error">Image is required</p>
                 )}
 
                 <textarea
+                    className="form-input max-h-[100px]"
                     placeholder="Description"
-                    className={`${styles.input} ${styles.textareaInput}`}
                     {...register("description", { required: true })}
                 ></textarea>
                 {errors.description && (
-                    <p className={styles.inputError}>Description is required</p>
+                    <p className="form-input-error">Description is required</p>
                 )}
 
                 <input
+                    className="form-input"
                     type="text"
                     placeholder="Price"
-                    className={styles.input}
                     {...register("price", { required: true })}
                 />
                 {errors.price && (
-                    <p className={styles.inputError}>Price is required</p>
+                    <p className="form-input-error">Price is required</p>
                 )}
 
-                <div className={styles.buttons}>
-                    <Link
-                        className={`${styles.button} ${styles.buttonCancel}`}
-                        to="/products"
-                    >
+                <div className="flex justify-center space-x-4">
+                    <Link className="form-btn bg-light-purple" to="/products">
                         Back
                     </Link>
 
-                    <button
-                        type="reset"
-                        className={`${styles.button} ${styles.buttonReset}`}
-                    >
+                    <button className="form-btn bg-light-yellow" type="reset">
                         Reset
                     </button>
 
-                    <button className={`${styles.button} ${styles.buttonSave}`}>
-                        Save
-                    </button>
+                    <button className="form-btn bg-light-green">Save</button>
                 </div>
                 <Toaster position="top-center" reverseOrder={false} />
             </form>
