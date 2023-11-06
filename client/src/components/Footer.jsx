@@ -8,7 +8,7 @@ import {
 
 function Footer() {
     return (
-        <div className="flex flex-col items-center mt-auto pt-0 text-foreground">
+        <div className="flex flex-col items-center mt-auto pt-0 text-foreground z-50">
             <div>
                 <ul className="flex space-x-2">
                     <li>
