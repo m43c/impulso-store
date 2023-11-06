@@ -1,44 +1,47 @@
-import { FaGithub, FaWhatsapp, FaFacebook, FaTwitter } from "react-icons/fa6";
-import styles from "./Footer.module.css";
+import {
+    FaGithub,
+    FaWhatsapp,
+    FaFacebook,
+    FaTwitter,
+    FaRegCopyright,
+} from "react-icons/fa6";
 
 function Footer() {
     return (
-        <div className={styles.mainContainer}>
-            <div className={styles.contactsContainer}>
-                <ul className={styles.contactItems}>
-                    <li className={styles.contactItem}>
-                        <a
-                            className={styles.contactLink}
-                            href="https://github.com/m43c"
-                            target="_blanck"
-                        >
+        <div className="flex flex-col items-center mt-auto pt-0 text-foreground">
+            <div>
+                <ul className="flex space-x-2">
+                    <li>
+                        <a href="https://github.com/m43c" target="_blanck">
                             <FaGithub />
                         </a>
                     </li>
 
-                    <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#">
+                    <li>
+                        <a href="#">
                             <FaWhatsapp />
                         </a>
                     </li>
 
-                    <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#">
+                    <li>
+                        <a href="#">
                             <FaFacebook />
                         </a>
                     </li>
 
-                    <li className={styles.contactItem}>
-                        <a className={styles.contactLink} href="#">
+                    <li>
+                        <a href="#">
                             <FaTwitter />
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div className={styles.rightsContainer}>
-                <span className={styles.copyrightSign}>&copy;</span>
-                2023 Marco Encinas - All rights reserved
+            <div className="flex justify-center items-center space-x-0.5">
+                <span className="text-sm">
+                    <FaRegCopyright />
+                </span>
+                <span>2023 Marco Encinas - All rights reserved</span>
             </div>
         </div>
     );

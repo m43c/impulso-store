@@ -20,6 +20,7 @@ export default {
                 "clean-green": "#8ec07c",
                 "blue-gray": "#458588",
                 "light-blue": "#83a598",
+                "error-red": "#ee241d",
             },
         },
     },
