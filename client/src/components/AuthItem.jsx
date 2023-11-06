@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 function AuthItem({ to, label, isAdmin, isNormalUser, onClick }) {
     const background = () => {
         return isAdmin
-            ? "bg-gradient-to-t from-clean-green to-forest-green"
+            ? "bg-light-aqua"
             : isNormalUser
-            ? "bg-gradient-to-t from-light-blue to-blue-gray"
-            : "bg-gradient-to-t from-pink to-magneta";
+            ? "bg-light-blue"
+            : "bg-light-purple";
     };
 
     return (

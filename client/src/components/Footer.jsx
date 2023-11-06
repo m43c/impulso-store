@@ -37,8 +37,8 @@ function Footer() {
                 </ul>
             </div>
 
-            <div className="flex justify-center items-center space-x-0.5">
-                <span className="text-sm">
+            <div className="flex justify-center items-center space-x-0.5 text-sm">
+                <span>
                     <FaRegCopyright />
                 </span>
                 <span>2023 Marco Encinas - All rights reserved</span>

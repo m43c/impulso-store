@@ -16,7 +16,7 @@ function Navbar() {
     const username = localUser?.username || user?.username;
 
     return (
-        <header className="fixed w-full flex justify-between px-4 py-1 top-0 left-0 text-foreground font-medium bg-gradient-to-b from-dark0 to-dark z-40 md:px-8 lg:px-12">
+        <header className="fixed w-full flex justify-between px-4 py-1 top-0 left-0 text-foreground font-medium bg-dark z-40 sm:text-xs md:px-8 lg:px-12">
             <Link className="text-4xl font-bold sm:text-3xl " to="/">
                 IMPULSO
             </Link>
@@ -24,7 +24,7 @@ function Navbar() {
             <nav
                 className={`nav ${
                     isMenuVisible ? "" : "sm:nav-sm translate-x-full"
-                } lg:text-[16px]`}
+                }`}
             >
                 <ul className="sm:flex">
                     <MenuItem label="Home" to="/" />

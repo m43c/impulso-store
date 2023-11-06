@@ -20,43 +20,46 @@ function LoginPage() {
     });
 
     return (
-        <div className="auth-container sm:max-w-xs">
-            <h1 className="auth-title">Sign in for Impulso</h1>
+        <div className="form-container min-w-[300px] sm:max-w-xs">
+            <h1 className="form-title">Sign in for Impulso</h1>
 
             <form onSubmit={onSubmit}>
                 {signinErrors.map((error, i) => (
-                    <div className="auth-input text-center bg-red" key={i}>
+                    <div className="form-input text-center bg-light-red" key={i}>
                         {error}
                     </div>
                 ))}
 
                 <input
-                    className="auth-input"
+                    className="form-input"
                     type="email"
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className="auth-input-error">Email is required</p>
+                    <p className="form-input-error">Email is required</p>
                 )}
 
                 <input
-                    className="auth-input"
+                    className="form-input"
                     type="password"
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className="auth-input-error">Password is required</p>
+                    <p className="form-input-error">Password is required</p>
                 )}
 
-                <button className="auth-btn" type="submit">
+                <button
+                    className="form-btn bg-light-yellow"
+                    type="submit"
+                >
                     Sign in
                 </button>
 
-                <p className="auth-cta">
+                <p className="form-cta">
                     <span>New to Impulso?</span>
-                    <Link className="auth-cta-link" to="/signup">
+                    <Link className="form-cta-link" to="/signup">
                         Create an account
                     </Link>
                 </p>

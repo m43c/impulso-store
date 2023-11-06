@@ -26,53 +26,56 @@ function RegistrationPage() {
     }, [user]);
 
     return (
-        <div className="auth-container sm:max-w-xs">
-            <h1 className="auth-title">Sign up for Impulso</h1>
+        <div className="form-container min-w-[300px] sm:max-w-xs">
+            <h1 className="form-title">Sign up for Impulso</h1>
 
             <form onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
-                    <div className="auth-input text-center bg-red" key={i}>
+                    <div
+                        className="form-input text-center bg-light-red"
+                        key={i}
+                    >
                         {error}
                     </div>
                 ))}
 
                 <input
-                    className="auth-input"
+                    className="form-input"
                     type="text"
                     placeholder="Username"
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className="auth-input-error">Username is required</p>
+                    <p className="form-input-error">Username is required</p>
                 )}
 
                 <input
-                    className="auth-input"
+                    className="form-input"
                     type="email"
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className="auth-input-error">Email is required</p>
+                    <p className="form-input-error">Email is required</p>
                 )}
 
                 <input
-                    className="auth-input"
+                    className="form-input"
                     type="password"
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className="auth-input-error">Password is required</p>
+                    <p className="form-input-error">Password is required</p>
                 )}
 
-                <button className="auth-btn" type="submit">
+                <button className="form-btn bg-light-yellow" type="submit">
                     Sign up
                 </button>
 
-                <p className="auth-cta">
+                <p className="form-cta">
                     Already have an account?{" "}
-                    <Link className="auth-cta-link" to="/signin">
+                    <Link className="form-cta-link" to="/signin">
                         Sing in
                     </Link>
                 </p>
