@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "./RegistrationPage.module.css";
 
 function RegistrationPage() {
     const {
@@ -13,7 +12,7 @@ function RegistrationPage() {
     const { signup, user, errors: registrationErrors } = useAuth();
 
     const navigate = useNavigate();
-    
+
     const onSubmit = handleSubmit((data) => {
         signup(data);
     });
@@ -27,59 +26,53 @@ function RegistrationPage() {
     }, [user]);
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>Sign up for Impulso</h1>
+        <div className="auth-container sm:max-w-xs">
+            <h1 className="auth-title">Sign up for Impulso</h1>
 
-            <form className={styles.form} onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
-                    <div
-                        className={`${styles.input} ${styles.registrationErrors}`}
-                        key={i}
-                    >
+                    <div className="auth-input text-center bg-red" key={i}>
                         {error}
                     </div>
                 ))}
 
                 <input
+                    className="auth-input"
                     type="text"
-                    className={styles.input}
                     placeholder="Username"
                     {...register("username", { required: true })}
                 />
                 {errors.username && (
-                    <p className={styles.inputError}>Username is required</p>
+                    <p className="auth-input-error">Username is required</p>
                 )}
 
                 <input
+                    className="auth-input"
                     type="email"
-                    className={styles.input}
                     placeholder="Email"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
-                    <p className={styles.inputError}>Email is required</p>
+                    <p className="auth-input-error">Email is required</p>
                 )}
 
                 <input
+                    className="auth-input"
                     type="password"
-                    className={styles.input}
                     placeholder="Password"
                     {...register("password", { required: true })}
                 />
                 {errors.password && (
-                    <p className={styles.inputError}>Password is required</p>
+                    <p className="auth-input-error">Password is required</p>
                 )}
 
-                <button
-                    type="submit"
-                    className={`${styles.input} ${styles.button}`}
-                >
+                <button className="auth-btn" type="submit">
                     Sign up
                 </button>
 
-                <p className={styles.question}>
+                <p className="auth-cta">
                     Already have an account?{" "}
-                    <Link className={styles.link} to="/signin">
+                    <Link className="auth-cta-link" to="/signin">
                         Sing in
                     </Link>
                 </p>
