@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useProducts } from "../context/ProductsContext";
 import ProductCard from "../components/ProductCard";
-import styles from "./ProductsPage.module.css";
 
 function ProductsPage() {
     const { user } = useAuth();
@@ -15,16 +14,16 @@ function ProductsPage() {
     }, []);
 
     return (
-        <section className={styles.mainContainer}>
+        <div className="mt-[48px] w-full min-h-screen p-4 text-foreground">
             {products.length == 0 ? (
                 <>
-                    <h1 className={styles.messageNoProducts}>
+                    <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl sm:text-2xl md:text-3xl">
                         There are no products yet
                     </h1>
                 </>
             ) : (
                 <>
-                    <div className={styles.productsContainer}>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
                         {products.map((product) => (
                             <ProductCard
                                 product={product}
@@ -35,7 +34,7 @@ function ProductsPage() {
                     </div>
                 </>
             )}
-        </section>
+        </div>
     );
 }
 

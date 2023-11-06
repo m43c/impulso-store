@@ -1,29 +1,38 @@
 import { useProducts } from "../context/ProductsContext";
 import { Link } from "react-router-dom";
-import styles from "./ProductCard.module.css";
 
 function ProductCard({ product, userRoleName }) {
     const { deleteProduct } = useProducts();
 
     return (
-        <article key={product._id} className={styles.product}>
-            <img src={product.image} className={styles.image} />
-            <h1 className={styles.name}>{product.name}</h1>
-            <p className={styles.description}>{product.description}</p>
-            <span className={styles.price}>{`${product.price}$`}</span>
-            <div className={styles.buttons}>
+        <div
+            key={product._id}
+            className=" max-w-[300px] mx-auto p-4 space-y-3 rounded text-center text-dark font-semibold bg-dark-aqua"
+        >
+            <img className="max-h-[300px]" src={product.image} />
+
+            <h1 className="font-bold text-2xl">{product.name}</h1>
+
+            <p className="max-h-[50px] text-center overflow-auto">
+                {product.description}
+            </p>
+
+            <span className="inline-block">{`${product.price}$`}</span>
+
+            <div className="flex justify-between space-x-4">
                 {userRoleName === "admin" ? (
                     <>
                         <button
-                            className={`${styles.button} ${styles.deleteBtn}`}
+                            className="product-btn bg-light-red"
                             onClick={() => {
                                 deleteProduct(product._id);
                             }}
                         >
                             Delete
                         </button>
+
                         <Link
-                            className={`${styles.button} ${styles.editBtn}`}
+                            className="product-btn bg-light-yellow"
                             to={`/add-product/${product._id}`}
                         >
                             Edit
@@ -31,17 +40,13 @@ function ProductCard({ product, userRoleName }) {
                     </>
                 ) : (
                     <>
-                        <button
-                            className={`${styles.button} ${styles.reserveBtn}`}
-                        >
-                            <a href="#" className={styles.link}>
-                                Reserve
-                            </a>
+                        <button className="product-btn bg-foreground">
+                            <a href="#">Reserve</a>
                         </button>
                     </>
                 )}
             </div>
-        </article>
+        </div>
     );
 }
 

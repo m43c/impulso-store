@@ -70,7 +70,7 @@
         @apply font-medium text-dark-red;
     }
 
-    .button {
-        @apply w-20 py-1 rounded font-semibold;
+    .product-btn {
+        @apply w-full py-0.5 rounded font-semibold;
     }
 }
