@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import MenuItem from "../components/MenuItem";
-import AuthItem from "../components/AuthItem";
+import AuthContainer from "../components/AuthContainer";
 
 function Navbar() {
-    const { isAuthenticated, logout, user } = useAuth();
-
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-    const localUser = JSON.parse(localStorage.getItem("user"));
-    const userRoleName = localUser?.roles[0]?.name || user?.roles[0]?.name;
-    const username = localUser?.username || user?.username;
-
     return (
-        <header className="fixed w-full flex justify-between px-4 py-1 top-0 left-0 text-foreground font-medium bg-dark z-40 sm:text-xs md:px-8 lg:px-12">
-            <Link className="text-4xl font-bold sm:text-3xl " to="/">
+        <header className="fixed w-full flex justify-between px-4 py-2 top-0 left-0 border-b-[1px] border-b-gryBd bg-blkBg z-40 md:px-8 lg:px-12">
+            <Link
+                className="text-4xl text-whtTxt font-bold sm:text-3xl "
+                to="/"
+            >
                 IMPULSO
             </Link>
 
@@ -33,60 +29,7 @@ function Navbar() {
                     <MenuItem label="Contact" to="/" />
                 </ul>
 
-                <ul className="sm:flex">
-                    {user ? (
-                        isAuthenticated ? (
-                            userRoleName === "admin" ? (
-                                <>
-                                    <AuthItem
-                                        label="Add Product"
-                                        to="/add-product"
-                                        isAdmin={true}
-                                    />
-
-                                    <AuthItem
-                                        label="Exit"
-                                        to="/"
-                                        onClick={() => logout()}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <AuthItem
-                                        label={`Welcome ${username}`}
-                                        to="/signin"
-                                        isNormalUser={true}
-                                    />
-
-                                    <AuthItem
-                                        label="Exit"
-                                        to="/"
-                                        onClick={() => logout()}
-                                    />
-                                </>
-                            )
-                        ) : (
-                            <>
-                                <AuthItem
-                                    label={`Welcome ${username}`}
-                                    to="/signin"
-                                    isNormalUser={true}
-                                />
-
-                                <AuthItem
-                                    label="Exit"
-                                    to="/"
-                                    onClick={() => logout()}
-                                />
-                            </>
-                        )
-                    ) : (
-                        <>
-                            <AuthItem label="Sign in" to="/signin" />
-                            <AuthItem label="Sign up" to="/signup" />
-                        </>
-                    )}
-                </ul>
+                <AuthContainer />
             </nav>
 
             <button
@@ -96,9 +39,9 @@ function Navbar() {
                 }}
             >
                 {isMenuVisible ? (
-                    <IoClose className="text-4xl sm:hidden" />
+                    <IoClose className="text-4xl text-whtTxt sm:hidden" />
                 ) : (
-                    <FaBars className="sm:hidden" />
+                    <FaBars className="text-whtTxt sm:hidden" />
                 )}
             </button>
         </header>
