@@ -3,7 +3,7 @@ function HomePage() {
         <main className="main main-md lg:px-12">
             <section className="main-container [grid-area:welcome]">
                 <article className="main-article">
-                    <h1 className="text-3xl font-semibold">
+                    <h1 className="font-semibold text-3xl text-whtTxt">
                         Welcome to IMPULSO: Your Online Destination for Fashion
                         and Elegance
                     </h1>
@@ -60,7 +60,7 @@ function HomePage() {
             </section>
 
             <aside className="[grid-area:info] space-y-2 text-center md:space-y-2 md:text-center">
-                <h1 className="text-3xl font-semibold">
+                <h1 className="font-semibold text-3xl text-whtTxt">
                     Unveil the Best Promotions and Deals at IMPULSO: Elevate
                     Your Style and Savings!
                 </h1>

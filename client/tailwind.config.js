@@ -7,22 +7,39 @@ export default {
                 Gabarito: ["Gabarito", "sans-serif"],
             },
             colors: {
-                dark0: "#0d0e0f",
-                dark: "#202020",
-                foreground: "#ebdbb2",
-                "dark-red": "#ee241d",
-                "light-red": "#fb4934",
-                "dark-green": "#98971a",
-                "light-green": "#b8bb26",
-                "dark-purple": "#b16286",
-                "light-purple": "#d3869b",
-                "dark-gray": "#83a598",
-                "dark-yellow": "#d79921",
-                "light-yellow": "#fabd2f",
-                "dark-aqua": "#689d6a",
-                "light-aqua": "#8ec07c",
-                "dark-blue": "#458588",
-                "light-blue": "#83a598",
+                blkMainBg: "#0c0d0e",
+                blkBg: "#151718",
+                blkTxt: "#151718",
+
+                whtBg: "#ecedee",
+                whtTxt: "#ecedee",
+                whtHvr: "#d3d7d9",
+
+                gryTxt: "#9ba0a1",
+                gryBd: "#9ba0a1",
+                gryHvr: "#202425",
+
+                rdBg: "#e5484d",
+                rdTxt: "#e5484d",
+                rdHvr: "#e85e63",
+
+                bluBg: "#0954a5",
+                bluTxt: "#52a9ff",
+                bluHvr: "#0B6DD5",
+
+                ltBluBg: "#008efc",
+
+                grnBg: "#2e9e68",
+                grnTxt: "#1c4834",
+                grnHvr: "#3db87c",
+
+                ylw: "#151718",
+
+                orgBg: "#ff802b",
+                orgTxt: "#391a03",
+                orgHvr: "#ff781f",
+
+                pur: "#bf7af0",
             },
         },
     },

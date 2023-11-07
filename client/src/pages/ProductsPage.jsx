@@ -14,7 +14,7 @@ function ProductsPage() {
     }, []);
 
     return (
-        <div className="mt-[48px] w-full min-h-screen p-4 text-foreground">
+        <div className="mt-[48px] w-full min-h-screen p-4 text-gryTxt">
             {products.length == 0 ? (
                 <>
                     <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl sm:text-2xl md:text-3xl">

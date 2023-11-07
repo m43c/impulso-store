@@ -98,15 +98,23 @@ function ProductFormPage() {
                 )}
 
                 <div className="flex justify-center space-x-4">
-                    <Link className="form-btn bg-light-purple" to="/products">
+                    <Link
+                        className="form-btn bg-orgBg hover:bg-orgHvr"
+                        to="/products"
+                    >
                         Back
                     </Link>
 
-                    <button className="form-btn bg-light-yellow" type="reset">
+                    <button
+                        className="form-btn bg-grnBg hover:bg-grnHvr"
+                        type="reset"
+                    >
                         Reset
                     </button>
 
-                    <button className="form-btn bg-light-green">Save</button>
+                    <button className="form-btn bg-bluBg hover:bg-bluHvr">
+                        Save
+                    </button>
                 </div>
                 <Toaster position="top-center" reverseOrder={false} />
             </form>

@@ -32,7 +32,7 @@ function RegistrationPage() {
             <form onSubmit={onSubmit}>
                 {registrationErrors.map((error, i) => (
                     <div
-                        className="form-input text-center bg-light-red"
+                        className="form-input border-none text-center bg-rdBg"
                         key={i}
                     >
                         {error}
@@ -69,7 +69,7 @@ function RegistrationPage() {
                     <p className="form-input-error">Password is required</p>
                 )}
 
-                <button className="form-btn bg-light-yellow" type="submit">
+                <button className="form-btn bg-bluBg" type="submit">
                     Sign up
                 </button>
 

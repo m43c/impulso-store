@@ -7,7 +7,7 @@ function ProductCard({ product, userRoleName }) {
     return (
         <div
             key={product._id}
-            className=" max-w-[300px] mx-auto p-4 space-y-3 rounded text-center text-dark font-semibold bg-dark-aqua"
+            className=" max-w-[300px] mx-auto p-4 space-y-3 rounded border border-gryBd text-center text-dark font-semibold bg-blkBg"
         >
             <img className="max-h-[300px]" src={product.image} />
 
@@ -23,7 +23,7 @@ function ProductCard({ product, userRoleName }) {
                 {userRoleName === "admin" ? (
                     <>
                         <button
-                            className="product-btn bg-light-red"
+                            className="product-btn bg-rdBg hover:bg-rdHvr"
                             onClick={() => {
                                 deleteProduct(product._id);
                             }}
@@ -32,7 +32,7 @@ function ProductCard({ product, userRoleName }) {
                         </button>
 
                         <Link
-                            className="product-btn bg-light-yellow"
+                            className="product-btn bg-bluBg hover:bg-bluHvr"
                             to={`/add-product/${product._id}`}
                         >
                             Edit
@@ -40,7 +40,7 @@ function ProductCard({ product, userRoleName }) {
                     </>
                 ) : (
                     <>
-                        <button className="product-btn bg-foreground">
+                        <button className="product-btn bg-bluBg hover:bg-bluHvr">
                             <a href="#">Reserve</a>
                         </button>
                     </>

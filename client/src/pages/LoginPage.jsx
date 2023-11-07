@@ -25,7 +25,10 @@ function LoginPage() {
 
             <form onSubmit={onSubmit}>
                 {signinErrors.map((error, i) => (
-                    <div className="form-input text-center bg-light-red" key={i}>
+                    <div
+                        className="form-input border-none text-center bg-rdBg"
+                        key={i}
+                    >
                         {error}
                     </div>
                 ))}
@@ -50,10 +53,7 @@ function LoginPage() {
                     <p className="form-input-error">Password is required</p>
                 )}
 
-                <button
-                    className="form-btn bg-light-yellow"
-                    type="submit"
-                >
+                <button className="form-btn bg-bluBg" type="submit">
                     Sign in
                 </button>
 
