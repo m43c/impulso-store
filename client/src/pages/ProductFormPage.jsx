@@ -3,7 +3,7 @@ import { useProducts } from "../context/ProductsContext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 function ProductFormPage() {
     const {
@@ -12,13 +12,16 @@ function ProductFormPage() {
         register,
         setValue,
     } = useForm();
+
     const { createProduct, readProduct, updateProduct } = useProducts();
+
     const [title, setTitle] = useState("New Product");
+
     const params = useParams();
+
     const notifySuccess = () =>
         toast.success("Saved successfully!", {
             style: {
-                borderRadius: "5px",
                 color: "#282828",
                 background: "#ebdbb2",
             },
@@ -108,7 +111,6 @@ function ProductFormPage() {
 
                     <button className="form-btn bg-light-green">Save</button>
                 </div>
-                <Toaster position="top-center" reverseOrder={false} />
             </form>
         </div>
     );
