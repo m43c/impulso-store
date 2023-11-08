@@ -6,7 +6,7 @@
 
 @layer components {
     .nav {
-        @apply fixed w-full h-full top-[48px] left-0 text-center bg-gradient-to-t from-dark0 to-dark;
+        @apply fixed w-full h-full top-[58px] left-0 text-center bg-blkBg;
     }
 
     .nav-sm {
@@ -14,7 +14,7 @@
     }
 
     .main {
-        @apply grid gap-y-8 main-areas px-4 py-8 mt-[44px] text-foreground;
+        @apply grid gap-y-8 main-areas px-4 py-8 mt-[44px] text-gryTxt;
     }
 
     .main-md {
@@ -43,23 +43,23 @@
     }
 
     .form-container {
-        @apply absolute top-1/2 left-1/2 p-4 rounded text-sm text-dark transform -translate-x-1/2 -translate-y-1/2 bg-light-blue;
+        @apply absolute top-1/2 left-1/2 p-4 rounded border border-gryBd text-sm text-whtTxt transform -translate-x-1/2 -translate-y-1/2 bg-blkBg;
     }
 
     .form-title {
-        @apply mb-1 font-bold text-2xl text-center;
+        @apply mb-1 font-bold text-3xl text-center;
     }
 
     .form-input {
-        @apply w-full p-1 mt-4 rounded outline-none bg-foreground;
+        @apply w-full p-1 mt-4 rounded border border-gryBd outline-none bg-transparent;
     }
 
     .form-input-error {
-        @apply pl-1 text-left text-dark-red;
+        @apply pl-1 text-left text-gryTxt;
     }
 
     .form-btn {
-        @apply w-full py-1 mt-4  rounded font-semibold text-center;
+        @apply w-full py-1 mt-4 rounded font-semibold text-center;
     }
 
     .form-cta {
@@ -67,10 +67,10 @@
     }
 
     .form-cta-link {
-        @apply font-medium text-dark-red;
+        @apply font-medium text-bluTxt;
     }
 
     .product-btn {
-        @apply w-full py-0.5 rounded font-semibold;
+        @apply w-full py-0.5 rounded font-semibold text-whtTxt;
     }
 }

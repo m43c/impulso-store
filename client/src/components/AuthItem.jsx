@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
 
-function AuthItem({ to, label, isAdmin, isNormalUser, onClick }) {
-    const background = () => {
-        return isAdmin
-            ? "bg-light-aqua"
-            : isNormalUser
-            ? "bg-light-blue"
-            : "bg-light-purple";
-    };
-
+function AuthItem({ classes, to, label, onClick }) {
     return (
-        <li className="p-3 sm:p-0">
+        <li className="p-3 mt-2 sm:p-0 sm:mt-0">
             <Link
-                className={`p-1 rounded-[3px] text-dark font-semibold ${background()} sm:ml-4`}
+                className={`py-1 px-2 rounded font-semibold ${classes} sm:ml-4`}
                 to={to}
                 onClick={onClick}
             >
