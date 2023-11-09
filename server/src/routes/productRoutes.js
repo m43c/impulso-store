@@ -4,21 +4,21 @@ import { validateRole } from "../middlewares/roleValidation.js";
 import { validateSchema } from "../middlewares/schemaValidation.js";
 import { createProductSchema } from "../schemas/productSchema.js";
 import {
-    createProduct,
-    readProducts,
-    readProduct,
-    updateProduct,
-    deleteProduct,
+  createProduct,
+  readProducts,
+  readProduct,
+  updateProduct,
+  deleteProduct,
 } from "../controllers/productController.js";
 
 const router = Router();
 
 router.post(
-    "/add-product",
-    validateToken,
-    validateRole,
-    validateSchema(createProductSchema),
-    createProduct
+  "/add-product",
+  validateToken,
+  validateRole,
+  validateSchema(createProductSchema),
+  createProduct
 );
 router.get("/products", validateToken, readProducts);
 router.get("/product/:id", validateToken, readProduct);
