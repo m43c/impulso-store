@@ -12,49 +12,37 @@ import ProductsPage from "./pages/ProductsPage";
 import Footer from "./components/Footer";
 
 function App() {
-    return (
-        <AuthProvider>
-            <ProductProvider>
-                <BrowserRouter>
-                    <div className="flex flex-col min-h-screen">
-                        <Navbar />
+  return (
+    <AuthProvider>
+      <ProductProvider>
+        <BrowserRouter>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
 
-                        <Routes>
-                            <Route path="/" element={<HomePage />} />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
 
-                            <Route
-                                path="/signup"
-                                element={<RegistrationPage />}
-                            />
+              <Route path="/signup" element={<RegistrationPage />} />
 
-                            <Route path="/signin" element={<LoginPage />} />
+              <Route path="/signin" element={<LoginPage />} />
 
-                            <Route element={<ProtectedRoute />}>
-                                <Route
-                                    path="/add-product"
-                                    element={<ProductFormPage />}
-                                />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/add-product" element={<ProductFormPage />} />
 
-                                <Route
-                                    path="/products"
-                                    element={<ProductsPage />}
-                                />
+                <Route path="/products" element={<ProductsPage />} />
 
-                                <Route
-                                    path="/add-product/:id"
-                                    element={<ProductFormPage />}
-                                />
-                            </Route>
-                        </Routes>
+                <Route path="/add-product/:id" element={<ProductFormPage />} />
+              </Route>
+            </Routes>
 
-                        <Footer />
+            <Footer />
 
-                        <Toaster position="top-center" reverseOrder={false} />
-                    </div>
-                </BrowserRouter>
-            </ProductProvider>
-        </AuthProvider>
-    );
+            <Toaster position="top-center" reverseOrder={false} />
+          </div>
+        </BrowserRouter>
+      </ProductProvider>
+    </AuthProvider>
+  );
 }
 
 export default App;

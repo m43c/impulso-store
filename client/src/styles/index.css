@@ -5,72 +5,72 @@
 @tailwind utilities;
 
 @layer components {
-    .nav {
-        @apply fixed w-full h-full top-[58px] left-0 text-center bg-blkBg;
-    }
+  .nav {
+    @apply fixed w-full h-full top-[58px] left-0 text-center bg-blkBg;
+  }
 
-    .nav-sm {
-        @apply sm:static sm:flex sm:justify-between sm:my-auto sm:text-sm sm:bg-none sm:translate-x-0 sm:transition-none;
-    }
+  .nav-sm {
+    @apply sm:static sm:flex sm:justify-between sm:my-auto sm:text-sm sm:bg-none sm:translate-x-0 sm:transition-none;
+  }
 
-    .main {
-        @apply grid gap-y-8 main-areas px-4 py-8 mt-[44px] text-gryTxt;
-    }
+  .main {
+    @apply grid gap-y-8 main-areas px-4 py-8 mt-[44px] text-gryTxt;
+  }
 
-    .main-md {
-        @apply md:px-8 md:gap-x-4 md:py-4 md:main-areas-md md:grid-cols-[60%_auto];
-    }
+  .main-md {
+    @apply md:px-8 md:gap-x-4 md:py-4 md:main-areas-md md:grid-cols-[60%_auto];
+  }
 
-    .main-areas {
-        grid-template-areas:
-            "welcome"
-            "info"
-            "location";
-    }
+  .main-areas {
+    grid-template-areas:
+      "welcome"
+      "info"
+      "location";
+  }
 
-    .main-areas-md {
-        grid-template-areas:
-            "welcome info"
-            "location location";
-    }
+  .main-areas-md {
+    grid-template-areas:
+      "welcome info"
+      "location location";
+  }
 
-    .main-container {
-        @apply flex flex-col space-y-4 text-center;
-    }
+  .main-container {
+    @apply flex flex-col space-y-4 text-center;
+  }
 
-    .main-article {
-        @apply grid gap-y-2 justify-items-center;
-    }
+  .main-article {
+    @apply grid gap-y-2 justify-items-center;
+  }
 
-    .form-container {
-        @apply absolute top-1/2 left-1/2 p-4 rounded border border-gryBd text-sm text-whtTxt transform -translate-x-1/2 -translate-y-1/2 bg-blkBg;
-    }
+  .form-container {
+    @apply absolute top-1/2 left-1/2 p-4 rounded border border-gryBd text-sm text-whtTxt transform -translate-x-1/2 -translate-y-1/2 bg-blkBg;
+  }
 
-    .form-title {
-        @apply mb-1 font-bold text-3xl text-center;
-    }
+  .form-title {
+    @apply mb-1 font-bold text-3xl text-center;
+  }
 
-    .form-input {
-        @apply w-full p-1 mt-4 rounded border border-gryBd outline-none bg-transparent;
-    }
+  .form-input {
+    @apply w-full p-1 mt-4 rounded border border-gryBd outline-none bg-transparent;
+  }
 
-    .form-input-error {
-        @apply pl-1 text-left text-gryTxt;
-    }
+  .form-input-error {
+    @apply pl-1 text-left text-gryTxt;
+  }
 
-    .form-btn {
-        @apply w-full py-1 mt-4 rounded font-semibold text-center;
-    }
+  .form-btn {
+    @apply w-full py-1 mt-4 rounded font-semibold text-center;
+  }
 
-    .form-cta {
-        @apply mt-4 space-x-1 text-center;
-    }
+  .form-cta {
+    @apply mt-4 space-x-1 text-center;
+  }
 
-    .form-cta-link {
-        @apply font-medium text-bluTxt;
-    }
+  .form-cta-link {
+    @apply font-medium text-bluTxt;
+  }
 
-    .product-btn {
-        @apply w-full py-0.5 rounded font-semibold text-whtTxt;
-    }
+  .product-btn {
+    @apply w-full py-0.5 rounded font-semibold text-whtTxt;
+  }
 }
