@@ -1,10 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {
-  signupRequest,
-  signinRequest,
-  profileRequest,
-  verifyTokenRequest,
-} from "../api/auth";
+import { signupRequest, signinRequest, profileRequest, verifyTokenRequest } from "../api/auth";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -24,8 +19,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const persistUser = (userData) =>
-    localStorage.setItem("user", JSON.stringify(userData));
+  const persistUser = (userData) => localStorage.setItem("user", JSON.stringify(userData));
 
   const cleanStorage = () => {
     Cookies.remove("token");

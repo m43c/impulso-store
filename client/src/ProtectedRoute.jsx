@@ -7,7 +7,7 @@ function ProtectedRoute() {
   const authentication = localStorage.getItem("isAuthenticated");
   const login = localStorage.getItem("isLogged");
 
-  if ((authentication && login) || isAuthenticated) {
+  if (authentication && login && isAuthenticated) {
     return <Outlet />;
   } else {
     return <Navigate to="/signin" replace />;
