@@ -2,7 +2,7 @@ import User from "../models/userModel.js";
 import Role from "../models/roleModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { createAccessToken } from "../libs/jwt.js ";
+import { createAccessToken } from "../libs/jwt.js";
 import { tokenSecret } from "../config.js";
 
 export const signup = async (req, res) => {
