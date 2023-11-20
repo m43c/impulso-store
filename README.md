@@ -14,7 +14,7 @@ Make sure you have Node.js installed on your system.
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/m43c/impulso-store
+    git clone https://github.com/m43c/impulso-store.git
     cd impulso-store/client
     ```
    
