@@ -41,7 +41,7 @@ function Footer() {
         <span>
           <FaRegCopyright />
         </span>
-        <span>2023 Marco Encinas - All rights reserved</span>
+        <span>2023 Marco Encinas & Agustin Colque - All rights reserved</span>
       </div>
     </div>
   );
