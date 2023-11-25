@@ -17,11 +17,7 @@ function HomePage() {
             children.
           </p>
 
-          <img
-            src="https://robohash.org/cat1?set=set4"
-            alt="cat 1"
-            className="inline-block"
-          />
+          <img src="/store-1.jpg" alt="cat 1" className="inline-block" />
         </article>
 
         <article className="main-article">
@@ -34,21 +30,17 @@ function HomePage() {
           </p>
 
           <div className="main-container">
-            <img
-              src="https://robohash.org/cat2?set=set4"
-              alt="cat 2"
-              className="inline-block"
-            />
+            <img src="/store-2.jpg" alt="store-2" className="inline-block" />
 
             <img
-              src="https://robohash.org/cat3?set=set4"
-              alt="cat 3"
+              src="store-3.jpg"
+              alt="store-3"
               className="inline-block md:hidden"
             />
 
             <img
-              src="https://robohash.org/cat4?set=set4"
-              alt="cat 4"
+              src="store-4.jpg"
+              alt="store-4"
               className="inline-block md:hidden"
             />
           </div>
@@ -69,11 +61,7 @@ function HomePage() {
             affordable, high-quality fashion merges with elegance.
           </p>
 
-          <img
-            src="https://robohash.org/cat5?set=set4"
-            alt="cat 5"
-            className="inline-block"
-          />
+          <img src="/offer-1.jpg" alt="offer-1" className="inline-block" />
         </article>
 
         <article className="main-article">
@@ -84,11 +72,7 @@ function HomePage() {
             latest fashion trends.
           </p>
 
-          <img
-            src="https://robohash.org/cat6?set=set4"
-            alt="cat 6"
-            className="inline-block"
-          />
+          <img src="/offer-2.jpg" alt="offer-2" className="inline-block" />
         </article>
       </aside>
 
@@ -106,11 +90,7 @@ function HomePage() {
             Street!
           </p>
 
-          <img
-            src="https://robohash.org/cat7?set=set4"
-            alt="cat 7"
-            className="inline-block"
-          />
+          <img src="/location.png" alt="cat 7" className="inline-block" />
         </article>
       </div>
     </main>
