@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { signupRequest, signinRequest, profileRequest, verifyTokenRequest } from "../api/auth";
+import {
+  signupRequest,
+  signinRequest,
+  profileRequest,
+  verifyTokenRequest,
+} from "../api/auth";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -19,7 +24,8 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const persistUser = (userData) => localStorage.setItem("user", JSON.stringify(userData));
+  const persistUser = (userData) =>
+    localStorage.setItem("user", JSON.stringify(userData));
 
   const cleanStorage = () => {
     Cookies.remove("token");
@@ -41,7 +47,11 @@ export const AuthProvider = ({ children }) => {
       setUser(res.data);
       persistUser(res.data);
     } catch (error) {
-      setErrors(error.response.data);
+      if (error.response) {
+        setErrors(error.response.data);
+      } else {
+        console.error("Undefined response error:", error);
+      }
     }
   };
 
