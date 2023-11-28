@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 
 describe("Navbar", () => {
   test("should toggle the menu visibility when the button is clicked", () => {
+    // Render the component
     const { rerender } = render(
       <AuthProvider>
         <ProductProvider>
@@ -19,11 +20,11 @@ describe("Navbar", () => {
       </AuthProvider>
     );
 
-    // Get menu element and verify it starts out hidden  
+    // Get menu element and verify it starts out hidden
     let menu = screen.getByRole("navigation");
     expect(menu.classList.contains("translate-x-full")).toBe(true);
 
-    // Click on the menu toggle button  
+    // Click on the menu toggle button
     const button = screen.getByRole("button");
     button.click();
 
