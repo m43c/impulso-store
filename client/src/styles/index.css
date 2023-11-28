@@ -6,7 +6,7 @@
 
 @layer components {
   .nav {
-    @apply fixed w-full h-full top-[58px] left-0 text-center bg-blkBg;
+    @apply fixed w-full h-full top-[57px] left-0 text-center bg-blkBg;
   }
 
   .nav-sm {
