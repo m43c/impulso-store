@@ -116,10 +116,13 @@ describe("ProductCard", () => {
 
     // Inject test version of deleteProduct into context
     vi.mock("../context/ProductsContext", async () => {
+      // Import the current context to make modifications
       const actual = await vi.importActual("../context/ProductsContext");
 
+      // Return the modified context
       return {
         ...actual,
+         // Mocking the signup function to simulate a server error
         useProducts: () => ({
           deleteProduct: deleteProductMock,
         }),
