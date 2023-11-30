@@ -68,13 +68,18 @@ describe("RegistrationPage", () => {
   });
 
   test("should handle server errors during registration process", () => {
+    // Mocking the "../context/AuthContext" module
     vi.mock("../context/AuthContext", async () => {
+      // Import the current context to make modifications
       const actual = await vi.importActual("../context/AuthContext");
 
+      // Return the modified context
       return {
         ...actual,
+        // Mocking the useAuth function of the context
         useAuth: () => ({
           signup: vi.fn().mockRejectedValue("Server error"),
+          // Setting the user to null and errors to an empty array
           user: null,
           errors: [],
         }),
@@ -89,10 +94,16 @@ describe("RegistrationPage", () => {
       </AuthProvider>
     );
 
+    // Getting the submit button by its role
     const submitButton = screen.getByRole("button", { name: "Sign up" });
+
+    // Simulating a click on the submit button
     userEvent.click(submitButton);
 
+    // Finding the error message containing "Server error"
     const errorMessage = screen.findByText("Server error");
+
+    // Ensuring the error message is defined
     expect(errorMessage).toBeDefined();
   });
 });
