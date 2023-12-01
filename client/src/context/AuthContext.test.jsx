@@ -1,12 +1,12 @@
-import { afterEach, describe, expect, test } from "vitest";
+import { useState } from "react";
 
-import { cleanup, renderHook } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
+
+import { renderHook } from "@testing-library/react";
 
 import { AuthProvider, useAuth } from "./AuthContext";
 
 describe("AuthContext", () => {
-  afterEach(cleanup);
-
   test("should initialize the authentication state to false", () => {
     // Create a wrapper component with AuthProvider
     const wrapper = ({ children }) => <AuthProvider>{children}</AuthProvider>;
