@@ -5,6 +5,13 @@ Impulso Store es una tienda en línea donde los usuarios pueden ver y reservar p
 
 This project consists of a main folder "impulse-store" that contains the frontend created with React + Vite in the "client" folder, and the backend created with Node.js, Express and MongoDB in the "server" folder. The frontend application interacts with the backend to manage the products.
 
+## Screenshots
+![Main Page](https://github.com/m43c/impulso-store/blob/main/client/public/mai%20page.png?raw=true)
+![Registration Page](https://github.com/m43c/impulso-store/blob/main/client/public/registration%20page.png?raw=true)
+![Login Page](https://github.com/m43c/impulso-store/blob/main/client/public/login%20page.png?raw=true)
+![Add Product](https://github.com/m43c/impulso-store/blob/main/client/public/add%20product.png?raw=true)
+![Products](https://github.com/m43c/impulso-store/blob/main/client/public/products.png?raw=true)
+
 ## Frontend (client)
 
 ### Previous requirements
